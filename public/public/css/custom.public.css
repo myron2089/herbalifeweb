@@ -1,0 +1,55 @@
+
+/* Top bar*/
+#top-bar {
+   
+    background: #77d04f;
+}
+
+.top-links ul li {
+    float: left;
+    position: relative;
+    height: 44px;
+    border-left: 1px solid #77d04f;
+}
+
+#primary-menu ul li:hover > a, #primary-menu ul li.current > a {
+    color: #7AC143;
+}
+
+#primary-menu ul ul:not(.mega-menu-column), #primary-menu ul li .mega-menu-content {
+   
+    border-top: 2px solid #7AC143;
+  
+}
+
+.button {
+    background-color: #7AC143;
+}
+
+
+
+
+/*Slider*/
+.ares.tparrows{
+
+	background: #77d04f;
+}
+
+.ares.tparrows:before {
+    font-family: "revicons";
+    font-size: 25px;
+    color: #fff;
+}
+.ares.tparrows:hover:before {
+    color: #000;
+}
+
+.ares .tp-title-wrap{
+
+	    background: #77d04f;
+}
+
+.contact-properties [class^=col-]>a .heading-block h3:after {
+    content: "";
+    border-style: solid;
+    border-color: #77d04f;

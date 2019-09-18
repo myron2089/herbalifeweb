@@ -1,0 +1,70 @@
+
+/*Header*/
+.kt-header{
+	background-color: #fff;
+}
+
+/*Logo*/
+.kt-header__brand-logo a img{
+	width: 150px;
+}
+
+/*user name*/
+.kt-header__topbar .kt-header__topbar-item.kt-header__topbar-item--user .kt-header__topbar-username{
+	color: #636177;
+}
+
+.kt-bg-brand {
+    background-color: #45c230 !important;
+}
+
+/*Nav*/
+.kt-aside-menu .kt-menu__nav > .kt-menu__section .kt-menu__section-text{
+	color: #4fc63c;
+}
+
+/*Icons*/
+.kt-font-brand{
+	color: #FFA600 !important;
+	
+}
+
+/*Forms*/
+.form-image-container{
+	text-align:center;
+	border: 1px #e2e5ec dashed;
+	padding: 10px;
+}
+
+.custom-file-upload-product{
+	margin-top: 15px;
+	margin-bottom: 15px;
+    border: 1px solid #ccc;
+	width: 350px;
+	height: 200px;
+    display: inline-block;
+    padding: 20% 12px;
+    cursor: pointer;
+	background: url('../../../admin/images/products/noProductPicture.png') center center no-repeat;
+	background-size: 100% auto;
+	
+}
+
+.image-inner-message{
+	margin: 0 auto;
+}
+
+.product-picture-hidden{
+	display: ;
+}
+
+/*Buttons*/
+.btn-primary{
+	background-color:#45c230;
+	border-color:#45c230;
+}
+
+.btn-primary:hover{
+	background-color:#4b9b3e;
+	border-color:#4b9b3e;
+}

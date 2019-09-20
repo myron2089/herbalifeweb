@@ -153,7 +153,7 @@
 					============================================= -->
 					<div id="logo">
 						<a href="index.html" class="standard-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 					
 					<!-- Primary Navigation

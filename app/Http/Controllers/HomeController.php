@@ -7,7 +7,7 @@ use App\Sale;
 use App\SaleDetail;
 use App\Distributor;
 use App\Order;
-use App\product;
+use App\Product;
 use Auth;
 
 class HomeController extends Controller

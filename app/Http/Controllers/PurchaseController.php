@@ -45,6 +45,9 @@ class PurchaseController extends Controller
 
     }
 
+
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -104,6 +107,7 @@ class PurchaseController extends Controller
                 
                 //Obtener id del producto segun codigo herbalife
                 $productId = Product::where('productHerbaLifeCode', $product['Id'])->first()->id;
+                $productQuantity = $product['Quantity'];
 
                 $detailId = mt_rand();
                 $detail = PurchaseDetail::create([
@@ -118,13 +122,33 @@ class PurchaseController extends Controller
 
                 ]);
 
+                /* Buscar el producto en stock y actualizarlo*/
+
+                $checkStock = Stock::from('stock as s')
+                                   ->join('purchase_detail as dt', 'dt.id', 's.purchase_detail_id')
+                                   ->where('dt.product_id', $productId)
+                                   ->where('s.status_id', 1)
+                                   ->select('s.currentQuantity')
+                                   ->get();
+
+                // Verificar si existia previamente el producto 
+                if(count($checkStock)>0){
+                    $updateLastStock = Stock::from('stock as s')
+                                   ->join('purchase_detail as dt', 'dt.id', 's.purchase_detail_id')
+                                   ->where('dt.product_id', $productId)
+                                   ->where('s.status_id', 1)
+                                   ->update(['s.status_id'=>2]);
+
+                    $productQuantity = $productQuantity + $checkStock[0]->currentQuantity;
+                }
 
                 $stock = Stock::create([
                     'id' => mt_rand(),
-                    'currentQuantity' => 1,
+                    'currentQuantity' => $productQuantity,
                     'stockIn' => $product['Quantity'],
                     'purchase_detail_id' => $detailId,
-                    'balancedPrice' => $product['Price']
+                    'balancedPrice' => $product['Price'],
+                    'status_id' => 1
                 ]);
 
                 

@@ -1888,7 +1888,7 @@ var KTDashboard = function() {
             trendsStats();
             trendsStats2();
             latestTrendsMap();
-            revenueChange();
+           // revenueChange();
             supportCases();
             supportRequests();
             activitiesChart();

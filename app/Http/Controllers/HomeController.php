@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sale;
+use App\SaleDetail;
+use App\Distributor;
+use App\Order;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+
         return view('home');
     }
 

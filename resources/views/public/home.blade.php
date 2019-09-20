@@ -322,14 +322,14 @@
 	</div>
 </div>
 <!--end:: container clearfix-->
-	<div class="section dark parallax nomargin mt-4" style="margin-top: 40px !important; background-image: url('{{url('public/images/boxes/parallax_1.jpg')}}'); padding: 140px 0;"  data-bottom-top="background-position:0px 50px;" data-top-bottom="background-position:0px -300px;">
+	<div class="section dark parallax nomargin mt-4" style="margin-top: 40px !important; background-image: url('{{url('public/images/boxes/parallax_1.jpg')}}'); padding: 140px 0;"  data-bottom-top="background-position:0px 50px;" data-top-bottom="background-position:0px -300px; background-size: cover;">
 		<div class="container center clearfix">
 			<div class="row clearfix">
 				<div class="col-lg-6">
 					<div class="heading-block nobottomborder nobottommargin" style="padding: 20px; background: rgba(69, 194, 48, 0.5); border-radius:0px 15px 0px 15px;">
 						<div class="before-heading lowercase ls1" style="color: #FFF; font-style: normal;">@lang('base.want_best_future')</div>
 						<h3 class="nott font-secondary t400" style="font-size: 32px;">@lang('base.be_a_distributor_and_get_benefits')</h3>
-						<a href="#" class="button button-large button-rounded button-border button-white button-light topmargin-sm noleftmargin">@lang('base.apply_now')</a>
+						<a href="{{url('distribuidor/registro')}}" class="button button-large button-rounded button-border button-white button-light topmargin-sm noleftmargin">@lang('base.apply_now')</a>
 					</div>
 				</div>
 			</div>
@@ -386,6 +386,11 @@
 </div>
 <!--end:: container clearfix-->
 
+<a href="#" class="button button-full center tright topmargin footer-stick">
+	<div class="container clearfix">
+		Ya eres un distribuidor? <strong>Ingresa aquí</strong> <i class="icon-caret-right" style="top:4px;"></i>
+	</div>
+</a>
 
 @endsection
 

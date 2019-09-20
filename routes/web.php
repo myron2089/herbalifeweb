@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('inicio');
 });
 
 
@@ -30,7 +30,7 @@ Route::get('admin', function(){
 	return 'eres un admin';
 })->middleware(['auth.admin']);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/administracion/inicio', 'AdminController@getAdminHome')->name('home');
 
 
 /*-------------------- users --------------------*/
@@ -42,6 +42,10 @@ Route::get('administrar/productos/desactivar/{id}/{statusId}', 'ProductControlle
 
 	/*-- product by id for purchase and sale list */
 	Route::get('administrar/productos/getproductbyid/{id}', 'ProductController@getProductByIdForList');
+	/*-- product by id for order with price */
+
+	Route::get('administrar/productos/getproductbyidwprice/{id}', 'ProductController@getProductByIdWithPriceForList');
+	
 
 /*------------------------------------ suppliers ---------------------------------------*/
 Route::resource('administracion/proveedores', 'SupplierController');
@@ -56,3 +60,28 @@ Route::get('administrar/distribuidores/status/{id}', 'DistributorController@chan
 Route::resource('administracion/ingresos', 'PurchaseController');
 	Route::post('administracion/compra/registrar', 'PurchaseController@storePurchase');
 	Route::get('administrar/ingresos/status/{id}', 'PurchaseController@changeIncomeStatus');
+
+/*------------------------------ orders --------------------------------------------*/
+Route::resource('administracion/pedidos', 'OrderController');
+
+/*------------------------------ sells --------------------------------------------*/
+Route::resource('administracion/ventas', 'SaleController');
+
+
+/******************************* DISTRIBUTORS SIDE **********************************/
+
+Route::get('distribuidor/registro', 'RegisterController@distributorRegister');
+Route::post('distribuidor/registro', 'RegisterController@distributorStore');
+Route::get('distribuidor/registrado', 'RegisterController@distributorRegistered');
+
+Route::get('distribuidor/inicio', 'DistributorController@getDistributorSideHomePage');
+
+/*------------------------------ orders --------------------------------------------*/
+	Route::get('distribuidor/pedidos', 'OrderController@distributorOrdersIndex');
+	Route::get('distribuidor/pedidos/crear', 'OrderController@distributorOrderCreate');
+	Route::get('distribuidor/pedidos/{id}', 'OrderController@distributorOrderDetails');
+	Route::post('distribuidor/pedidos', 'OrderController@distributorOrdersStore');
+
+	/*--------------------------- purchases -------------------------------------*/
+	Route::get('distribuidor/compras', 'SaleController@distributorPurchasesIndex');
+	Route::get('distribuidor/compras/{id}', 'SaleController@distributorPurchaseDetail');

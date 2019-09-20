@@ -644,7 +644,7 @@ var KTDashboard = function() {
     // Revenue Change.
     // Based on Morris plugin - http://morrisjs.github.io/morris.js/
     var revenueChange = function() {
-        if ($('#kt_chart_revenue_change').length == 0) {
+        if ($('#kt_chart_revenue_changea').length == 0) {
             return;
         }
 
@@ -1888,7 +1888,7 @@ var KTDashboard = function() {
             trendsStats();
             trendsStats2();
             latestTrendsMap();
-            revenueChange();
+           // revenueChange();
             supportCases();
             supportRequests();
             activitiesChart();

@@ -9,6 +9,7 @@ use App\Category;
 use App\ProductPicture;
 use File;
 use Image;
+use App\Stock;
 
 use Illuminate\Http\Request;
 
@@ -316,6 +317,21 @@ class ProductController extends Controller
             $product = new Product();
 
             $productData = $product->getProductById($id);
+
+            return json_encode(['status' => 'success', 'message' => 'Se ha obtenido exitosamente el producto', 'productData' => $productData]);
+        }catch(Exception $e){
+            return json_encode(['status'=> 'error', 'message' => 'Ha ocurrido un error, porfavor, póngase en contacto con el administrador del sistema.']);
+        }
+    }
+
+
+     public function getProductByIdWithPriceForList($id){
+        try{
+            $product = new Product();
+
+            $productStock = new Stock();
+
+            $productData = $productStock->getProductStockBy($id);
 
             return json_encode(['status' => 'success', 'message' => 'Se ha obtenido exitosamente el producto', 'productData' => $productData]);
         }catch(Exception $e){

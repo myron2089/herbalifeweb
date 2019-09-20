@@ -117,12 +117,15 @@ return [
 	'edit_distributor' => 'Editar proveedor',
 	'distributor_refered' => 'Patrocinador',
 	'edit_distributor' => 'Editar distribuidor',
+	'distributor_password' => 'Contraseña',
+	'distributor_password_confirm' => 'Confirmar contraseña',
 
 
 	/* Compras */
 	'purchases_management' => 'Ingresos',
 	'purchases_management_description' => 'Administrar ingresos de productos',
 	'new_purchase' => 'Nuevo Ingreso',
+	
 	'detail_purchase' => 'Detalle de compra',
 	'new_purchase_description' => 'Registar nuevo ingreso de productos',
 	'purchases_supplier_name' => 'Proveedor',
@@ -131,7 +134,7 @@ return [
 	'purchase_detail' => 'Detalle de ingreso',
 	'purchase_detail_description' => 'Productos a ingresar',
 	'purchase_product_select' => 'Buscar producto',
-	'distributor_nit' => 'Número Identificación',
+	'distributor_nit' => 'Número Identificación Tributaria',
 	'distributor_name' => 'Nombre',
 	'distributor_phone_number' => 'Teléfono',
 	'distributor_email' => 'Correo Electrónico',
@@ -142,6 +145,26 @@ return [
 	'purchase_date' => 'Fecha',
 	'purchase_total' => 'Total',
 	'purchase_show_detail' => 'Ver detalles',
+
+
+
+	/*Ventas*/
+	'sales_management' => 'Ventas',
+	'sales_management_description' => 'Ventas realizadas',
+	'check_as_send' => 'Marcar como enviado',
+	'sale' => 'Venta',
+	'detail_sale' => 'Detalle de venta',
+
+	/* Pedidos */
+	'new_order' => 'Nuevo pedido',
+	'btn_save_order' => 'Registrar pedido',
+	'return_to_orders' => 'Regresar a listado',
+	'orders_management' => 'Pedidos',
+	'orders_management_description' => 'Administrar pedidos de distribuidores',
+	'sell' => 'Facturar',
+	'orders_distributor_name' => 'Nombre del distribuidor',
+	'order' => 'Pedido',
+	'detail_order' => 'Detalle de pedido',
 
 	/*varios*/
 	'change_status' => 'Cambiar estado',
@@ -169,6 +192,7 @@ return [
 	'btn_edit' => 'Editar',
 	'btn_sign_out' => 'Cerrar sesión',
 	'btn_return' => 'Regresar',
+	'order_detail_price' => 'Precio',
 
 
 
@@ -209,6 +233,10 @@ return [
 	'forgot_password' => 'Olvidaste tu contraseña',
 	'user_password' => 'Contraseña',
 	'signin' => 'Ingresar',
+
+
+
+
 
 
 	/*Buttons*/

@@ -53,13 +53,13 @@
 
 									<div class="col_full">
 										<label for="login-form-username">@lang('base.user_email')</label>
-										<input type="text" id="email" name="email" class="form-control not-dark" value="{{ old('email') }}" autofocus />
+										<input type="email" id="email" name="email" class="form-control not-dark" value="{{ old('email') }}" autofocus required />
 										
 									</div>
 
 									<div class="col_full">
 										<label for="login-form-password">@lang('base.user_password')</label>
-										<input type="password" id="password" name="password" value="{{ old('password') }}" class="form-control not-dark" />
+										<input type="password" id="password" name="password" value="{{ old('password') }}" class="form-control not-dark" required />
 										
 									</div>
 										@error('email')
@@ -79,6 +79,28 @@
 											<a href="{{ route('password.request') }}" class="fright">@lang('base.forgot_password')</a>
 										@endif
 									</div>
+
+									
+									<div class="col_full" style="margin-top: 10px">
+										@foreach ($errors->all() as $error)
+
+										 
+										  <div class="alert alert-danger">
+											  <i class="icon-warning-sign"></i><strong>Error </strong><br>{{ $error }}
+											</div>
+
+										@endforeach
+
+										@if(session()->has('status'))
+
+											@if(session('status') == 'registered')
+												<div class="alert alert-success">
+												  <i class="icon-ok-sign"></i><strong>Registrado! </strong><br>{!!session('message')!!}
+												</div>											
+											@endif
+
+										@endif
+									</div>
 								</form>
 
 								<div class="line line-sm"></div>
@@ -86,7 +108,7 @@
 							</div>
 						</div>
 
-						<div class="center dark"><small>Copyrights &copy; All Rights Reserved by Canvas Inc.</small></div>
+						<div class="center dark"><small>Copyrights &copy; All Rights Reserved by HerbalifeDevelopment.</small></div>
 
 					</div>
 				</div>

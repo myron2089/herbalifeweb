@@ -15,17 +15,13 @@
 						<i class="kt-font-brand flaticon-suitcase"></i>
 					</span>
 					<h3 class="kt-portlet__head-title">
-						@lang('base.purchases_management')
-						<small>@lang('base.purchases_management_description')</small>
+						@lang('base.orders_management')
+						<small>@lang('base.orders_management_description')</small>
 					</h3>
 				</div>
 				<div class="kt-portlet__head-toolbar">
 					<div class="kt-portlet__head-wrapper">
-						<div class="kt-portlet__head-actions">
-							
-							&nbsp;
-							
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -44,40 +40,6 @@
 										</span>
 									</div>
 								</div>
-								<!--<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-									<div class="kt-form__group kt-form__group--inline">
-										<div class="kt-form__label">
-											<label>Status:</label>
-										</div>
-										<div class="kt-form__control">
-											<select class="form-control bootstrap-select" id="kt_form_status">
-												<option value="">All</option>
-												<option value="Activo">Activo</option>
-												<option value="2">Delivered</option>
-												<option value="3">Canceled</option>
-												<option value="4">Success</option>
-												<option value="5">Info</option>
-												<option value="6">Danger</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-									<div class="kt-form__group kt-form__group--inline">
-										<div class="kt-form__label">
-											<label>Type:</label>
-										</div>
-										<div class="kt-form__control">
-											<select class="form-control bootstrap-select" id="kt_form_type">
-												<option value="">All</option>
-												<option value="1">Online</option>
-												<option value="2">Retail</option>
-												<option value="3">Direct</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>-->
 						</div>
 						<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
 							<a href="#" class="btn btn-default kt-hidden">
@@ -91,34 +53,50 @@
 				<!--end: Search Form -->
 			</div>
 			<div class="kt-portlet__body kt-portlet__body--fit">
-
+				 @if (\Session::has('status'))
+					<div class="alert alert-success" role="alert">
+						{{ \Session::get('message') }}  
+					</div>
+						@if(Session::get('exception') == 1)
+						<div class="alert alert-warning" role="alert">
+							{{ \Session::get('exmessage') }}
+								
+						</div>		
+						@endif		 	
+				 </div>
+				 @endif
 				<!--begin: Datatable -->
 				<table class="kt-datatable" id="html_table" width="100%">
 					<thead>
 						<tr>
 							<th title="Field #1">@lang('base.purchase_date')</th>
-							
-							<th title="Field #3">@lang('base.document_number')</th>
-							<th title="Field #3">@lang('base.purchases_supplier_name')</th>
-							<th title="Field #4">@lang('base.purchase_total')</th>
-							
-							<th title="Field #7">@lang('base.details')</th>
+							<th title="Field #2">@lang('base.document_number')</th>
+							<th title="Field #3">Distribuidor</th>
+							<th title="Field #4">Total</th>
+							<th title="Field #4">Estado</th>
+							<th title="Field #5">@lang('base.details')</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($purchases as $purchase)
+						@foreach($orders as $order)
 						<tr>
-							<td>{{$purchase->purchaseDocumentDate}}</td>
-							<td>{{$purchase->noDoc}}</td>
-							<td>{{$purchase->supplierName}}</td>
-							<td class="kt-align-right">{{$purchase->purchaseTotal}}</td>
+							<td>{{$order->fechaDoc}}</td>
+							<td>{{$order->noDoc}}</td>
+							<td>{{$order->userFirstName}} {{$order->userLastName}}<br> <code>{{$order->userHerbaLifeCode}}</code></td>
+							<td class="kt-align-right">{{$order->orderTotal}}</td>
+							<td class="kt-align-right">{{$order->statusName}}</td>
 							
 							<td>
-								<a href="{{url('administracion/ingresos')}}/{{$purchase->id}}"  class="btn btn-sm btn-outline-brand"><i class="fa flaticon-eye"></i> @lang('base.purchase_show_detail')</a>
+								<a href="{{url('administracion/pedidos')}}/{{$order->id}}"  class="btn btn-sm btn-outline-brand"><i class="fa flaticon-eye"></i> @lang('base.purchase_show_detail')</a>
 								
-									
-								
-							
+								@if($order->status_id <> 6)					
+									<a href="#" onclick="event.preventDefault(); document.getElementById('frm-sell').submit();"  class="btn btn-sm btn-outline-brand"><i class="fa fa-arrow-right"></i> @lang('base.sell')</a>
+								@endif
+
+								<form id="frm-sell" action="{{url('administracion/ventas')}}" method="POST" style="display: none;">
+								    @csrf
+								    <input type="hiiden" name="orderId" id="orderId" value="{{$order->id}}">
+								</form>
 							</td>
 							
 						</tr>

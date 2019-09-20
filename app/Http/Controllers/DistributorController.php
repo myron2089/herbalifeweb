@@ -5,6 +5,8 @@ use DB;
 use App\User;
 use App\Distributor;
 use App\State;
+use App\Sale;
+use App\Order;
 use App\City;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -91,7 +93,7 @@ class DistributorController extends Controller
                 'city_id' => $request->city,
                 'status_id' => 1,
                 'email' => $request->userEmail,
-                'password' => Hash::make("ps".$id."wrd"),
+                'password' => Hash::make("Test@1234"),
                 'user_type_id' => $request->userType
                 ]);
 
@@ -259,6 +261,41 @@ class DistributorController extends Controller
             DB::rollBack();
             return json_encode(['status'=> 'error', 'message' => 'Ha ocurrido un error, porfavor, póngase en contacto con el administrador del sistema.']);
         }
+
+    }
+
+
+
+
+    /*
+    * Distribuidor Autenticado
+    */
+
+    public function getDistributorSideHomePage(){
+
+
+
+         $sales = Sale::from('sales as s')
+                     ->join('distributors as d', 'd.id', 's.distributor_id')
+                     ->join('users as u', 'u.id', 'd.user_id')
+                     ->join('statuses as st', 'st.id', 's.status_id')
+                     ->where('s.distributor_id', Auth::user()->id)
+                     ->select(DB::raw('s.id as noDoc, u.userHerbaLifeCode, u.userFirstName, u.userLastName, s.saleTotal, date_format(s.created_at, "%d-%m-%Y") as fechaDoc, st.statusName'))
+                     ->orderBy('s.created_at', 'desc')
+                     ->take(5)
+                     ->get();
+
+                      $orders = Order::from('orders as o')
+                         ->where('distributors_id',  Auth::user()->id)
+                         ->join('order_detail as dt', 'dt.order_id', 'o.id')
+                         ->join('statuses as st', 'st.id', 'o.status_id')
+                         ->select(DB::raw('o.id, o.orderNumber as noDoc, sum((dt.detailQuantity) * (dt.detailPrice)) as orderTotal, st.statusName'))
+                         ->groupBy('o.id' , 'o.orderNumber', 'st.statusName', 'o.status_id')
+                         ->distinct()
+                         ->take(5)
+                         ->get();
+
+        return view('public.distributors.distributor_home', ['sales' => $sales, 'orders'=> $orders]);
 
     }
 }

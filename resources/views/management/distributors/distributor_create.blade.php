@@ -68,7 +68,7 @@
 								<div class="form-group row">
 									<div class="col-lg-6">
 										<label class="">@lang('base.distributor_nit')<span>*</span></label>
-										<input name="supplierIdentificationNumber" id="supplierIdentificationNumber" type="text" maxlength="20" class="form-control" placeholder=""  required>
+										<input name="userIdentificationNumber" id="userIdentificationNumber" type="text" maxlength="20" class="form-control" placeholder=""  required>
 										
 									</div>
 

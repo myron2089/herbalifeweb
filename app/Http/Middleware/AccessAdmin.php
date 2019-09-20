@@ -21,7 +21,7 @@ class AccessAdmin
 
         }
 
-        return redirect('home');
+        return redirect('inicio');
         
     }
 }

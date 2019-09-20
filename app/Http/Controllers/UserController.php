@@ -84,7 +84,7 @@ class UserController extends Controller
                 'city_id' => $request->city,
                 'status_id' => 1,
                 'email' => $request->userEmail,
-                'password' => Hash::make("ps".$id."wrd"),
+                'password' => Hash::make("Test@1234"),
                 'user_type_id' => $request->userType
                 ]);
 

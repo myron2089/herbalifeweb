@@ -25,6 +25,11 @@
 	<link rel="stylesheet" type="text/css"  href="{{ asset('public/css/pet.css') }}">
 	<link rel="stylesheet" type="text/css"  href="{{ asset('public/css/bike.css') }}">
 	<link rel="stylesheet" type="text/css"  href="{{ asset('public/css/custom.public.css') }}">
+	<link href="{{ asset('admin/assets/vendors/general/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('css/datatables.css') }}" rel="stylesheet" type="text/css" />
+	<!-- Select-Boxes CSS -->
+	<link rel="stylesheet" href="{{ asset('public/css/components/select-boxes.css') }}" type="text/css" />
+	<link href="{{ asset('admin/assets/vendors/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
 
 	<!-- Document Title
 	============================================= -->
@@ -103,7 +108,7 @@
 									<li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
 								</ul>
 							</li> -->
-							<li><a href="{{url('login')}}">@lang('base.menu_login')</a>
+							@if(!Auth::check())<li><a href="{{url('login')}}">@lang('base.menu_login')</a>@endif
 								<!--<div class="top-link-section">
 									<form id="top-login">
 										<div class="input-group" id="top-login-username">
@@ -150,13 +155,13 @@
 						<a href="index.html" class="standard-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
 						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
-
+					
 					<!-- Primary Navigation
 					============================================= -->
 					<nav id="primary-menu">
 
 						<ul>
-							<li class="current"><a href="{{url('inicio')}}"><div>@lang('base.home')</div><span>Lets Start</span></a></li>
+							<li class="current"><a @if(Auth::check()) href="{{url('distribuidor/inicio')}}"  @else href="{{url('inicio')}}" @endif><div>@lang('base.home')</div><span>Lets Start</span></a></li>
 							<!-- Mega Menu
 							============================================= -->
 							<li class="mega-menu"><a href="#"><div>@lang('base.menu_our_products')</div><span>Out of the Box</span></a>
@@ -248,12 +253,28 @@
 							<li><a href="#"><div>@lang('base.menu_about_us')</div><span>Awesome Works</span></a></li>
 							<li><a href="#"><div>@lang('base.menu_contact')</div><span>Awesome Works</span></a></li>
 							<!--<li><a href="#"><div>@lang('base.menu_login')</div><span>Latest News</span></a></li>-->
+							@if(Auth::check())
+							<li class="sub-menu profile-button"><a class="btn btn-secondary btn-sm dropdown-toggle" style="color: #fff;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
+								
+								
+								<ul>
+									<li><a href="{{url('distribuidor/inicio')}}"><div>@lang('base.home') </div></a></li>
+									
+									<li><a class="dropdown-item tleft" href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">@lang('base.btn_sign_out')  <i class="icon-signout fright"></i></a>
+										<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+										    {{ csrf_field() }}
+										</form></li>
+								</ul>
+									
+								
+							</li>
+							@endif
 							
 						</ul>
 
 						<!-- Top Cart
 						============================================= -->
-						<div id="top-cart">
+						<!--<div id="top-cart">
 							<a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
 							<div class="top-cart-content">
 								<div class="top-cart-title">
@@ -286,16 +307,16 @@
 									<button class="button button-3d button-small nomargin fright">View Cart</button>
 								</div>
 							</div>
-						</div><!-- #top-cart end -->
+						</div>--><!-- #top-cart end -->
 
 						<!-- Top Search
 						============================================= -->
-						<div id="top-search">
+						<!--<div id="top-search">
 							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
 							<form action="search.html" method="get">
 								<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
 							</form>
-						</div><!-- #top-search end -->
+						</div>--><!-- #top-search end -->
 
 					</nav><!-- #primary-menu end -->
 
@@ -305,6 +326,8 @@
 
 		</header><!-- #header end -->
 
+
+		@yield('title')
 		@yield('slider')
 
 		<!-- Content
@@ -573,7 +596,18 @@
 	<script src="{{ URL::asset('public/include/rs-plugin/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 	<script src="{{ URL::asset('public/include/rs-plugin/js/extensions/revolution.extension.migration.min.js') }}"></script>
 	<script src="{{ URL::asset('public/include/rs-plugin/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+	
+	<script src="{{ URL::asset('js/datatables.js') }}" type="text/javascript"></script>
+	<script src="{{ URL::asset('admin/assets/vendors/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script>
+	<script src="{{ URL::asset('admin/assets/vendors/custom/js/vendors/sweetalert2.init.js') }}" type="text/javascript"></script>
 
+	<!-- Select-Boxes Plugin -->
+	<script src="{{ URL::asset('public/js/components/select-boxes.js') }}" type="text/javascript"></script>
+	<script type="text/javascript">
+		$.ajaxSetup({
+		   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+		});
+		</script>
 	<script>
 
 		var tpj=jQuery;

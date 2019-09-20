@@ -109,7 +109,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
 			<div class="kt-header-mobile__logo">
 				<a href="demo11/index.html">
-					<img alt="Logo" src="./assets/media/logos/logo-11-sm.png" />
+					<img alt="Logo" src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" />
 				</a>
 			</div>
 			<div class="kt-header-mobile__toolbar">
@@ -190,7 +190,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="kt-header__topbar">
 
 								<!--begin: Search -->
-								<div class="kt-header__topbar-item kt-header__topbar-item--search dropdown" id="kt_quick_search_toggle">
+								<!--<div class="kt-header__topbar-item kt-header__topbar-item--search dropdown" id="kt_quick_search_toggle">
 									<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="kt-header__topbar-icon"><i class="flaticon2-search-1"></i></span>
 									</div>
@@ -207,12 +207,12 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
 
 								<!--end: Search -->
 
 								<!--begin: Notifications -->
-								<div class="kt-header__topbar-item dropdown">
+								<!--<div class="kt-header__topbar-item dropdown">
 									<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="kt-header__topbar-icon"><i class="flaticon2-bell-alarm-symbol"></i></span>
 										<span class="kt-hidden kt-badge kt-badge--danger"></span>
@@ -220,7 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
 										<form>
 
-											<!--begin: Head -->
+											
 											<div class="kt-head kt-head--skin-light kt-head--fit-x kt-head--fit-b">
 												<h3 class="kt-head__title">
 													User Notifications
@@ -240,7 +240,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</ul>
 											</div>
 
-											<!--end: Head -->
+											
 											<div class="tab-content">
 												<div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
 													<div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll" data-scroll="true" data-height="300" data-mobile-height="200">
@@ -601,19 +601,19 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</form>
 									</div>
-								</div>
+								</div> -->
 
 								<!--end: Notifications -->
 
 								<!--begin: Quick actions -->
-								<div class="kt-header__topbar-item dropdown">
+								<!-- <div class="kt-header__topbar-item dropdown">
 									<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="kt-header__topbar-icon"><i class="flaticon2-gear"></i></span>
 									</div>
 									<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
 										<form>
 
-											<!--begin: Head -->
+											
 											<div class="kt-head kt-head--skin-light">
 												<h3 class="kt-head__title">
 													User Quick Actions
@@ -622,9 +622,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 											</div>
 
-											<!--end: Head -->
-
-											<!--begin: Grid Nav -->
+											
 											<div class="kt-grid-nav kt-grid-nav--skin-light">
 												<div class="kt-grid-nav__row">
 													<a href="#" class="kt-grid-nav__item">
@@ -680,22 +678,22 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 
-											<!--end: Grid Nav -->
+											
 										</form>
 									</div>
-								</div>
+								</div> -->
 
 								<!--end: Quick actions -->
 
 								<!--begin: Cart -->
-								<div class="kt-header__topbar-item dropdown">
+								<!--<div class="kt-header__topbar-item dropdown">
 									<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="kt-header__topbar-icon"><i class="flaticon2-shopping-cart-1"></i></span>
 									</div>
 									<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
 										<form>
 
-											<!-- begin:: Mycart -->
+											
 											<div class="kt-mycart">
 												<div class="kt-mycart__head kt-head" style="background-image: url(./assets/media/misc/bg-1.jpg);">
 													<div class="kt-mycart__info">
@@ -725,7 +723,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																</div>
 															</div>
 															<a href="#" class="kt-mycart__pic">
-																<img src="./assets/media/products/product9.jpg" title="">
+																<img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" title="">
 															</a>
 														</div>
 													</div>
@@ -747,7 +745,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																</div>
 															</div>
 															<a href="#" class="kt-mycart__pic">
-																<img src="./assets/media/products/product13.jpg" title="">
+																<img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" title="">
 															</a>
 														</div>
 													</div>
@@ -769,7 +767,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																</div>
 															</div>
 															<a href="#" class="kt-mycart__pic">
-																<img src="./assets/media/products/product16.jpg" title="">
+																<img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" title="">
 															</a>
 														</div>
 													</div>
@@ -791,7 +789,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																</div>
 															</div>
 															<a href="#" class="kt-mycart__pic">
-																<img src="./assets/media/products/product15.jpg" title="" alt="">
+																<img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" title="" alt="">
 															</a>
 														</div>
 													</div>
@@ -815,24 +813,24 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 
-											<!-- end:: Mycart -->
+											
 										</form>
 									</div>
-								</div>
+								</div> -->
 
 								<!--end: Cart-->
 
 								<!--begin: Quick panel toggler -->
-								<div class="kt-header__topbar-item" data-toggle="kt-tooltip" title="Quick panel" data-placement="top">
+								<!--<div class="kt-header__topbar-item" data-toggle="kt-tooltip" title="Quick panel" data-placement="top">
 									<div class="kt-header__topbar-wrapper">
 										<span class="kt-header__topbar-icon" id="kt_quick_panel_toggler_btn"><i class="flaticon2-menu-2"></i></span>
 									</div>
-								</div>
+								</div> -->
 
 								<!--end: Quick panel toggler -->
 
 								<!--begin: Language bar -->
-								<div class="kt-header__topbar-item kt-header__topbar-item--langs">
+								<!--<div class="kt-header__topbar-item kt-header__topbar-item--langs">
 									<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="kt-header__topbar-icon">
 											<img class="" src="./assets/media/flags/012-uk.svg" alt="" />
@@ -860,7 +858,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 
 								<!--end: Language bar -->
 
@@ -885,7 +883,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<!--begin: Head -->
 										<div class="kt-user-card kt-user-card--skin-light kt-notification-item-padding-x">
 											<div class="kt-user-card__avatar">
-												<img class="kt-hidden" alt="Pic" src="./assets/media/users/300_25.jpg" />
+												<!--<img class="kt-hidden" alt="Pic" src="./assets/media/users/300_25.jpg" />-->
 
 												<!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
 												<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold kt-hidden-">{{$firstLetter}}</span>
@@ -893,16 +891,16 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-user-card__name">
 												{{Auth::user()->userFirstName}}
 											</div>
-											<div class="kt-user-card__badge">
+											<!--<div class="kt-user-card__badge">
 												<span class="btn btn-label-primary btn-sm btn-bold btn-font-md">23 messages</span>
-											</div>
+											</div> -->
 										</div>
 
 										<!--end: Head -->
 
 										<!--begin: Navigation -->
 										<div class="kt-notification">
-											<a href="#" class="kt-notification__item">
+											<!--<a href="#" class="kt-notification__item">
 												<div class="kt-notification__item-icon">
 													<i class="flaticon2-calendar-3 kt-font-success"></i>
 												</div>
@@ -913,8 +911,8 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="kt-notification__item-time">
 														@lang('base.my_profile_description')
 													</div>
-												</div>
-											</a>
+												</div> 
+											</a>-->
 											
 											<div class="kt-notification__custom kt-space-between">
 												<a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="btn btn-label btn-label-brand btn-sm btn-bold">@lang('base.btn_sign_out')</a>
@@ -956,10 +954,11 @@ License: You must have a valid license purchased only from themeforest(the above
 								    <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
 								        <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1">
 								            <ul class="kt-menu__nav ">
-								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">@lang('base.home')</span></a></li>
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/inicio')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">@lang('base.home')</span></a></li>
 
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-user"></i><span class="kt-menu__link-text">@lang('base.account')</span></a></li>
+								                <!--<li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-user"></i><span class="kt-menu__link-text">@lang('base.account')</span></a></li>-->
 
+								                @if(Auth::user()->user_type_id == 1)
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.management')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
@@ -1001,8 +1000,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								                    <h4 class="kt-menu__section-text">@lang('base.distributors')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
 								                </li>
+
+
 								                <li class="kt-menu__item " aria-haspopup="true"><a href="{{url('administracion/distribuidores')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-suitcase"></i><span class="kt-menu__link-text">@lang('base.distributors_management')</span></a></li>
 
+								                @endif
+
+								                @if(Auth::user()->user_type_id==1 || Auth::user()->user_type_id == 2)
 								                
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.products_income')</h4>
@@ -1010,6 +1014,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								                </li>
 
 								                <li class="kt-menu__item " aria-haspopup="true"><a href="{{url('administracion/ingresos/create')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-plus"></i><span class="kt-menu__link-text">@lang('base.new_income')</span></a></li>
+
+								                @endif
 
 								                <li class="kt-menu__item " aria-haspopup="true"><a href="{{url('administracion/ingresos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list"></i><span class="kt-menu__link-text">@lang('base.show_incomes')</span></a></li>
 
@@ -1019,15 +1025,15 @@ License: You must have a valid license purchased only from themeforest(the above
 								                </li>
 								                
 								                
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-plus"></i><span class="kt-menu__link-text">@lang('base.new_sale')</span></a></li>
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list"></i><span class="kt-menu__link-text">@lang('base.show_sales')</span></a></li>
+								                <!--<li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-plus"></i><span class="kt-menu__link-text">@lang('base.new_sale')</span></a></li>-->
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/ventas')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list"></i><span class="kt-menu__link-text">@lang('base.show_sales')</span></a></li>
 
 
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.orders')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
 								                </li>
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-notes"></i><span class="kt-menu__link-text">@lang('base.show_orders')</span></a></li>
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/pedidos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-notes"></i><span class="kt-menu__link-text">@lang('base.show_orders')</span></a></li>
 
 
 
@@ -1035,8 +1041,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								                    <h4 class="kt-menu__section-text">@lang('base.reports')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
 								                </li>
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-graphic"></i><span class="kt-menu__link-text">@lang('base.purchases')</span></a></li>
-								                <li class="kt-menu__item " aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-network"></i><span class="kt-menu__link-text">@lang('base.sales')</span></a></li>
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-graphic"></i><span class="kt-menu__link-text">@lang('base.purchases')</span></a></li>
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-network"></i><span class="kt-menu__link-text">@lang('base.sales')</span></a></li>
 								                
 								            </ul>
 								        </div>

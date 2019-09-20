@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\Input;
+use Lang;
 class LoginController extends Controller
 {
     /*
@@ -35,5 +38,58 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+     public function login(Request $request){
+        $this->validateLogin($request);
+
+        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+
+            
+            /*
+            * Verificar tipo de usuario para redireccionar
+            * 1 Administrador
+            * 2 Distribuidor
+            * 3 Compra Ventas
+            * 4 Reportes
+            */
+            $url = "administracion/inicio";
+
+            
+            if (Auth::user()->user_type_id==2) {
+               
+                    $url ='distribuidor/inicio';
+                  
+
+            }
+
+            
+
+            return redirect($url);
+
+        } else{
+
+            return redirect()->back()->withInput(Input::except('password'))->withErrors([
+                    'email' => Lang::get('Usuario y/o contraseña incorrecto(s)')  ]);
+        }
+
+        
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
     }
 }

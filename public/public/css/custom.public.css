@@ -5,6 +5,28 @@
     background: #77d04f;
 }
 
+.profile-button a{
+	/*color: #fff !important;*/
+    /*background-color: #6c757d;
+    border-color: #6c757d;
+	*/
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	
+	margin-top: 15px;
+}
+
+#page-title {
+    position: relative;
+    padding: 50px 0;
+    background-color: #eaf4f4;
+    border-bottom: 1px solid #EEE;
+}
+
+.profile-button a:hover{
+	cursor: pointer !important;
+}
+
 .top-links ul li {
     float: left;
     position: relative;
@@ -26,6 +48,51 @@
     background-color: #7AC143;
 }
 
+.button:hover{
+	transform: scale(1.005) !important;
+}
+
+.button.button-full{
+	background: #77d04f;
+}
+.dataTables_filter{
+        float: left !important;
+    }
+	
+.dataTables_filter label input{
+	font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	padding-left: 5px;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 40px !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 40px !important;
+}
+
+
+.fancy-title.title-bottom-border h1, .fancy-title.title-bottom-border h2, .fancy-title.title-bottom-border h3, .fancy-title.title-bottom-border h4, .fancy-title.title-bottom-border h5, .fancy-title.title-bottom-border h6 {
+    display: block;
+    background: transparent;
+    padding: 0 0 10px;
+    border-bottom: 2px solid #77d04f;
+}
 
 
 

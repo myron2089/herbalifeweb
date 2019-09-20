@@ -15,8 +15,8 @@
 						<i class="kt-font-brand flaticon-suitcase"></i>
 					</span>
 					<h3 class="kt-portlet__head-title">
-						@lang('base.new_purchase')
-						<small>@lang('base.new_purchase_description')</small>
+						@lang('base.detail_order')
+						
 					</h3>
 				</div>
 				
@@ -31,65 +31,38 @@
 							@csrf
 							<input type="hidden" name="userType" id="userType" value="2">
 							<div class="kt-portlet__body">
-
-
-
-								<div class="form-group row">
-
-									<div class="col-lg-6">
-										<label>@lang('base.purchase_document_number')<span>*</span></label>
-										<input name="purchaseDocumentNumber" id="purchaseDocumentNumber" type="text" value="11111" maxlength="20" class="form-control" autofocus required>									
-									</div>
-
-									<div class="col-lg-6">
-										<label>@lang('base.purchase_document_date')<span>*</span></label>
-										<input name="purchaseDocumentDate" id="purchaseDocumentDate" value="2019-08-10" type="date"  class="form-control" required>									
-									</div>
-									
-
-									
-									
-								</div>
-
-								<div class="form-group row">
-									<div class="col-lg-6">
-										<label>@lang('base.purchases_supplier_name')<span>*</span></label>
-										<select class="form-control kt-select2" id="supplierId" name="supplierId" required>
-											<option value="">@lang('base.select_an_option')</option>
-											@foreach($suppliers as $supplier)
-											<option value="{{$supplier->id}}" selected>{{$supplier->supplierName}}</option>
-											@endforeach
-										</select>
-										
-									</div>
-
-									
-								</div>
-
-								<div class="alert alert-secondary" role="alert">
-									<div class="alert-icon"><i class="flaticon-list kt-font-brand"></i></div>
-									<div class="alert-text">
-										<h4>@lang('base.purchase_detail')</h4> @lang('base.purchase_detail_description')
+								<!--begin:: invoice -->
+								<div class="kt-invoice-1">
+								@foreach($order as $data)
+								<div class="kt-invoice__head" style="background-image: url('{{url('admin/images/background/450.jpg')}}');">
+									<div class="kt-invoice__container">
+										<div class="kt-invoice__brand">
+											<h1 class="kt-invoice__title">Compra</h1>
+											
+										</div>
+										<div class="kt-invoice__items">
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__subtitle">@lang('base.purchase_document_date')</span>
+												<span class="kt-invoice__text">{{$data->fechaDoc}}</span>
+											</div>
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__subtitle">@lang('base.purchase_document_number')</span>
+												<span class="kt-invoice__text">{{$data->noDoc}}</span>
+											</div>
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__subtitle">@lang('base.purchases_supplier_name')</span>
+												<span class="kt-invoice__text">{{$data->userFirstName}} {{$data->userLastName}}</span>
+											</div>
+										</div>
 									</div>
 								</div>
-								<hr style="background-color: red">
 
-								<div class="form-group row">
-									<div class="col-lg-6">
-										<label>@lang('base.purchase_product_select')</label>
-										<select class="form-control kt-select2" id="productId" name="productId">
-											<option value="">@lang('base.select_an_option')</option>
-											@foreach($products as $product)
-											<option value="{{$product->id}}">{{$product->productName}} ({{$product->productMeasure}} {{$product->unityName}}) </option>
-											@endforeach
-										</select>
-										
-									</div>
-							
-								</div>
+								
+								
 
-
-								<div class="form-group row">
+								@endforeach
+								<div class="kt-invoice__body">
+								
 									<!-- products table -->
 									<div class="col-lg-12">
 
@@ -101,30 +74,64 @@
 													<th  title="Field #1">@lang('base.herbalife_code')</th>
 													<th>@lang('base.product_quantity')</th>
 													<th title="Field #2">@lang('base.product_name')</th>
-													<th>@lang('base.product_cost')</th>
 													<th>@lang('base.product_price')</th>
 													<th>@lang('base.product_subtotal')</th>
-													<th title="Field #5">@lang('base.actions')</th>
 												</tr>
 											</thead>
 											<tbody>
-												
-												
+												@foreach($details as $detail)
+													<tr>
+														<td>{{$detail->productHerbaLifeCode}}</td>
+														<td>{{$detail->detailQuantity}}</td>
+														<td>{{$detail->productName}}</td>
+														<td>{{$detail->detailPrice}}</td>
+														<td>{{$detail->subTotal}}</td>
+														
+													</tr>
+												@endforeach
 											</tbody>
 										</table>
 										<!-- end:: table-->
 									</div>
+							
 								</div>
-
+								<!--end:: invoice__body-->
+								<!--begin:: invoice__footer-->
+								<div class="kt-invoice__footer">
+									<div class="kt-invoice__container  kt-align-right" style="text-align:  right;">
+										<div class="kt-invoice__bank">
+											<!--<div class="kt-invoice__title">BANK TRANSFER</div>
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__label">Account Name:</span>
+												<span class="kt-invoice__value">Barclays UK</span>
+											</div>
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__label">Account Number:</span>
+												<span class="kt-invoice__value">1234567890934</span>
+											</div>
+											<div class="kt-invoice__item">
+												<span class="kt-invoice__label">Code:</span>
+												<span class="kt-invoice__value">BARC0032UK</span>
+											</div>-->
+										</div> 
+										<div class="kt-invoice__total kt-align-right">
+											<span class="kt-invoice__title">TOTAL</span>
+											<span class="kt-invoice__price">Q {{$orderTotal}}</span>
+											<span class="kt-invoice__notice"><!-- --></span>
+										</div>
+									</div>
+								</div>
+								<!--end:: invoice__footer-->
 								
 
+							</div>
 							</div>
 							<div class="kt-portlet__foot">
 								<div class="kt-form__actions">
 									<div class="row">
 										<div class="col-lg-12  kt-align-right">
-											<button type="submit" class="btn btn-primary">@lang('base.btn_save_purchase')</button>
-											<a href="{{url('administracion/ingresos')}}" class="btn btn-secondary">@lang('base.btn_cancel')</a>
+											
+											<a href="{{url('administracion/ingresos')}}" class="btn btn-secondary">@lang('base.btn_return')</a>
 										</div>
 										
 									</div>
@@ -146,11 +153,15 @@
 <!-- end:: Content-->
 @endsection
 
+@section('css')
+<link href="{{ asset('admin/assets/css/demo1/pages/invoices/invoice-1.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('scripts')
 
 <script src="{{ URL::asset('js/custom.functions.js') }}" type="text/javascript"></script>
 <script>
-	 $('#productsTable').DataTable({"lengthChange": false, "bFilter": false});
+	 $('#productsTable').DataTable({"lengthChange": false, "bFilter": false, "paging": false,});
 
 
 </script>
@@ -208,11 +219,9 @@ function loadPicture(event){
 		  title: "@lang('base.add_product')",
 		  text: "@lang('base.please_wait')",
 		  html:
-		    '<form>'+
-		    '<input id="productQuantity" class="swal2-input onlyInt" onkeypress="intValidate(event, 1)" maxlength="5"  placeholder="@lang('base.product_quantity')" autofocus required>' +
-		    '<input id="productCost" class="swal2-input" onkeypress="intValidate(event, 2)"  maxlength="6"  required placeholder="@lang('base.product_cost')">' +
-		    '<input id="productPrice" class="swal2-input" onkeypress="intValidate(event, 2)" maxlength="6"  required placeholder="@lang('base.product_price')">'+
-		    '</form>',
+		    '<input id="productQuantity" class="swal2-input"  placeholder="@lang('base.product_quantity')" autofocus>' +
+		    '<input id="productCost" class="swal2-input"  placeholder="@lang('base.product_costo')">' +
+		    '<input id="productPrice" class="swal2-input" placeholder="@lang('base.product_price')">',
 		  showCancelButton: true,
 		  confirmButtonColor: '#3085d6',
 		  cancelButtonColor: '#d33',
@@ -220,66 +229,51 @@ function loadPicture(event){
 		  confirmButtonText: "@lang('base.add_product')",
 		  showLoaderOnConfirm: true,
 		  showConfirmButton: true,
-		  allowOutsideClick: false,
 		   onBeforeOpen: () => {
-		   $('#productQuantity').select();
+		   $('#productQuantity').focus();
 		  },
 		  preConfirm: () => {
-		   var quantity = $("#productQuantity").val();
-		   var cost = $("#productCost").val();
-		   var price = $("#productPrice").val();
+		  
+		   Swal.showLoading();
 
-		   if(quantity.length == 0){
-		   	$("#productQuantity").select();
-		   	
-		   	return false;
-		   }
-		   if(cost.length == 0){
-		   	$("#productCost").select();
-		   	
-		   	return false;
-		   }
-		   if(price.length == 0){
-		   	$("#productPrice").select();
-		   	
-		   	return false;
-		   }
-
-		   else{
-
-			   Swal.showLoading();
-
-			    return fetch(url)
-			      .then(response => response.json())
-			      .then(data =>{ 
-			      	console.log(data.productData[0].productHerbaLifeCode);
-			      	Swal.insertQueueStep(data.message); 
-			      	$("#"+id).text(data.message);
+		    return fetch(url)
+		      .then(response => response.json())
+		      .then(data =>{ 
+		      	console.log(data.productData[0].productHerbaLifeCode);
+		      	Swal.insertQueueStep(data.message); 
+		      	$("#"+id).text(data.message);
 
 
-			      	var table = $('#productsTable').DataTable();
-	 				var subTotal = $('#productQuantity').val() * $('#productCost').val();
-					table.row.add([
-					        data.productData[0].productHerbaLifeCode,
-					        $('#productQuantity').val(),
-					        data.productData[0].productName,
-					        $('#productCost').val(),
-					        $('#productPrice').val(),
-					        subTotal,
-					        '<button type="button" class="btn btn-sm btn-outline-brand remove-product"><i class="flaticon2-trash"></i>@lang('base.delete')</button>'
-					    ]).draw();
+		      	var table = $('#productsTable').DataTable();
+ 				var subTotal = $('#productQuantity').val() * $('#productCost').val();
+				table.row.add([
+				        data.productData[0].productHerbaLifeCode,
+				        $('#productQuantity').val(),
+				        data.productData[0].productName,
+				        $('#productCost').val(),
+				        $('#productPrice').val(),
+				        subTotal,
+				        '<button type="button" class="btn btn-sm btn-outline-brand remove-product"><i class="flaticon2-trash"></i>@lang('base.delete')</button>'
+				    ]).draw();
 
-					$("#productId").val('').trigger('change');
-			      })
-			      
-			      /*.then(data => console.log(data.newStatusName))*/
-			      .catch(() => {
-			        Swal.insertQueueStep({
-			          type: 'error',
-			          title: "@lang('base.an_error_as_ocurred')",
-			        })                                              
-			      })
-		  	}
+
+		      	/*$('#productsTable > tbody:first').append('<tr><td>'+data.productData[0].productHerbaLifeCode+'</td>' +
+		      		                                   '<td>'+$('#productQuantity').val()+'</td>'+
+		      		                                   '<td>'+data.productData[0].productName+'</td>'+
+		      		                                   '<td>'+$('#productCost').val()+'</td>'+
+		      		                                   '<td>'+$('#productPrice').val()+'</td>'+
+		      		                                   '<td> <button onclick="changeStatus()" class="btn btn-sm btn-outline-brand"><i class="flaticon-refresh"></i>@lang('base.change_status')</button></td>' +
+		      		                                   '</tr>');*/
+
+		      })
+		      
+		      /*.then(data => console.log(data.newStatusName))*/
+		      .catch(() => {
+		        Swal.insertQueueStep({
+		          type: 'error',
+		          title: "@lang('base.an_error_as_ocurred')",
+		        })                                              
+		      })
 		  }
 		}])
 	});
@@ -335,14 +329,6 @@ function loadPicture(event){
 
 		var array = [];
 	    
-	    if ( ! table.data().count() ) {
-		   	Swal.fire(
-					  '',
-					  "No se han agregado productos a la lista!",
-					  'warning'
-					);
-		   	return;
-		}
 
 
 		table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
@@ -375,55 +361,29 @@ function loadPicture(event){
 		    method:"POST",
 		    dataType: 'json',
 		    data: {products: array, supplierId: supplierId, purchaseDocumentNumber: purchaseDocumentNumber, purchaseDocumentDate: purchaseDocumentDate  } ,
-		    beforeSend: function(){
-		    	Swal.fire({ title: "Registrando.." });
-  				swal.showLoading();
-		    },
+		    
 		    success:function(data)
 		    {
 		    	
-			    
+			    if(data.status=='success'){
+			    	Swal.fire(
+					  '',
+					  data.message,
+					  'success'
+					);
+		    	}
+		    	else{
+		    		Swal.fire(
+					  '',
+					  data.message,
+					  'warning'
+					);
+		    	}
 		    }
-		}).done(function(data){
-
-			swal.close();
-			if(data.status=='success'){
-		    	Swal.fire(
-				  '',
-				  data.message,
-				  'success'
-				);
-				var table = $('#productsTable').DataTable();
- 
-				table
-				    .clear()
-				    .draw();
-
-				$("#purchaseDocumentNumber").val('');
-				$("#purchaseDocumentNumber").val('');
-				$("#purchaseDocumentNumber").select();
-				
-
-		    }
-	    	else{
-	    		Swal.fire(
-				  '',
-				  data.message,
-				  'warning'
-				);
-	    	}
-
-			
-
 		});
 		
 
 	});
-
-
-</script>
-
-<script type="text/javascript">
 
 
 </script>

@@ -283,7 +283,7 @@
 	<div class="container  clearfix">
 		<div class="row contact-properties clearfix" >
 			<div class="col-md-4">
-				<a href="#" style="background: url('{{url('public/images/boxes/personal_nutrition.jpg')}}') no-repeat center center; background-size: cover;">
+				<a href="{{url('productos')}}/nutricion" style="background: url('{{url('public/images/boxes/personal_nutrition.jpg')}}') no-repeat center center; background-size: cover;">
 					<div class="vertical-middle dark center" style="position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -94.5px;">
 						<div class="heading-block nomargin noborder">
 							<h3 class="capitalize t400 font-secondary">@lang('base.nutrition_products')</h3>
@@ -295,7 +295,7 @@
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="#" style="background: url('{{url('public/images/boxes/personal_care.jpg')}}') no-repeat center center; background-size: cover;">
+				<a href="{{url('productos')}}/personal" style="background: url('{{url('public/images/boxes/personal_care.jpg')}}') no-repeat center center; background-size: cover;">
 					<div class="vertical-middle dark center" style="position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -94.5px;">
 						<div class="heading-block nomargin noborder">
 							<h3 class="capitalize t400 font-secondary">@lang('base.personal_care_products')</h3>
@@ -307,7 +307,7 @@
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="#" style="background: url('{{url('public/images/boxes/all_products.jpg')}}') no-repeat center center; background-size: cover;">
+				<a href="{{url('productos')}}/todos" style="background: url('{{url('public/images/boxes/all_products.jpg')}}') no-repeat center center; background-size: cover;">
 					<div class="vertical-middle dark center" style="position: absolute; top: 50%; width: 100%; padding-top: 0px; padding-bottom: 0px; margin-top: -114px;">
 						<div class="heading-block nomargin noborder">
 							<h3 class="capitalize t400 font-secondary">@lang('base.meet_our_products')</h3>

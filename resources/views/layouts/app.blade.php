@@ -1062,13 +1062,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="kt-container  kt-container--fluid ">
 							<div class="kt-footer__wrapper">
 								<div class="kt-footer__copyright">
-									2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Keenthemes</a>
+									&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Copyrights © 2019 All Rights Reserved by msoft Inc.</a>
 								</div>
-								<div class="kt-footer__menu">
-									<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">About</a>
-									<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Team</a>
-									<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Contact</a>
-								</div>
+								
 							</div>
 						</div>
 					</div>

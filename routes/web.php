@@ -16,6 +16,15 @@ Route::get('/', function () {
 });
 
 
+
+
+Route::get('contacto', function () {
+    return view('public.contact');
+});
+
+Route::get('productos/{tipo}', 'HomeController@getProductsPage');
+Route::get('producto/{id}', 'HomeController@getProductPage');
+
 /*-------------------- public ------------------------*/
 Route::get('inicio', 'HomeController@getHomePage');
 

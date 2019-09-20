@@ -38,13 +38,13 @@
 									</div>
 								</div>
 
-								<div class="form-group row">
+								<!--<div class="form-group row">
 									<div class="col-lg-12">
 										<label class="">@lang('base.product_description')<span>*</span></label>
 										<textarea name="productDescription" id="productDescription" data-provide="markdown" rows="10"  maxlength="254" class="form-control"></textarea>
 										
 									</div>
-								</div>
+								</div> -->
 
 								<div class="form-group row">
 									<div class="col-lg-12">

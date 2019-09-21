@@ -141,7 +141,7 @@
 					<thead>
 						<tr>
 							<th class="kt-hidden" title="Field #1">@lang('base.herbalife_code')</th>
-							<th title="Field #2">@lang('base.distributor_nit')</th>
+							
 							<th title="Field #2">@lang('base.distributor_name')</th>
 							<th title="Field #2">@lang('base.distributor_email')</th>
 							<th title="Field #4">@lang('base.distributor_phone_number')</th>
@@ -153,7 +153,7 @@
 						@foreach($distributors as $distributor)
 						<tr>
 							<td class="kt-hidden">{{$distributor->userHerbaLifeCode}}</td>
-							<td>{{$distributor->userIdentificationNumber}}</td>
+							
 							<td>{{$distributor->userFirstName}} {{$distributor->userLastName}}</td>
 							<td>{{$distributor->email}}</td>
 							<td>{{$distributor->userPhoneNumber}}</td>

@@ -227,7 +227,7 @@ return [
 	'meet_our_products_description' => 'Conoce todos nuestros productos y empieza a gozar de sus beneficios',
 
 	'want_best_future' => 'Quieres un mejor futuro?',
-	'be_a_distributor_and_get_benefits' => 'Coviértete eun distribuidor de herbalife y construye el futuro que mereces',
+	'be_a_distributor_and_get_benefits' => 'Coviértete en un distribuidor de herbalife y construye el futuro que mereces',
 
 	'login_to_your_account' => 'Ingresa a tu cuenta',
 	'forgot_password' => 'Olvidaste tu contraseña',

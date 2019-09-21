@@ -13,7 +13,7 @@
 
 				<div class="heading-block noborder">
 					<h3>{{Auth::user()->userFirstName}} {{Auth::user()->userLastName}}</h3>
-					<span>Distribuidor</span>
+					<span>{{Auth::user()->userHerbaLifeCode}} </span>
 				</div>
 
 				<div class="clear"></div>
@@ -117,6 +117,7 @@
 					<a href="{{url('distribuidor/pedidos')}}" class="list-group-item list-group-item-action clearfix">@lang('base.orders') <i class="fa fa-boxes  float-right"></i></a>
 					<a href="{{url('distribuidor/compras')}}" class="list-group-item list-group-item-action clearfix">@lang('base.purchases')  <i class="fa fa-clipboard-check float-right"></i></a>
 					<a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="list-group-item list-group-item-action clearfix">@lang('base.btn_sign_out') <i class="icon-line2-logout float-right"></i></a>
+					<a href="{{url('distribuidor/asociados')}}" class="list-group-item list-group-item-action clearfix">Mis asociados <i class="icon-users1 float-right"></i></a>
 
 					<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
 					    {{ csrf_field() }}

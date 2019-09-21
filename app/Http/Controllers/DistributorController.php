@@ -298,4 +298,22 @@ class DistributorController extends Controller
         return view('public.distributors.distributor_home', ['sales' => $sales, 'orders'=> $orders]);
 
     }
+
+
+    /*
+    * Listado de asociados del distribuidor
+    */
+
+    public function getAssociatedDistributors(){
+
+        $distributors = Distributor::from('distributors as d')
+                        ->join('users as u', 'u.id', 'd.user_id')
+                        ->where('d.distributor_referred_id', Auth::user()->id)
+                        ->get();
+
+        return view('public.distributors.distributor_partners', ['distributors'=>$distributors]);
+
+        //dd($distributors);
+
+    }
 }

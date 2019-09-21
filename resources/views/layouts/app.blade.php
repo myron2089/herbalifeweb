@@ -958,7 +958,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 								                <!--<li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-user"></i><span class="kt-menu__link-text">@lang('base.account')</span></a></li>-->
 
-								                @if(Auth::user()->user_type_id == 1)
+								                @if(Auth::check() && Auth::user()->user_type_id == 1)
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.management')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
@@ -966,8 +966,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-users-1"></i><span class="kt-menu__link-text">@lang('base.users')</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 								                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 								                        <ul class="kt-menu__subnav">
-								                            <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Resources</span></span></li>
-								                            <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/usuarios/create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">@lang('base.create_user')</span></a></li>
+								                            <!--<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Resources</span></span></li>
+								                            <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/usuarios/create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">@lang('base.create_user')</span></a></li>-->
 								                            <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/usuarios')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">@lang('base.show_users')</span></a></li>
 								                            
 								                        </ul>
@@ -984,7 +984,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								                    </div>
 								                </li>
 
-								                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-group"></i><span class="kt-menu__link-text">@lang('base.suppliers')</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+								                <!--<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-group"></i><span class="kt-menu__link-text">@lang('base.suppliers')</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 								                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 								                        <ul class="kt-menu__subnav">
 								                            <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Resources</span></span></li>
@@ -992,7 +992,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								                            <li class="kt-menu__item " aria-haspopup="true"><a href="{{url('administracion/proveedores/create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">@lang('base.new_supplier')</span></a></li>
 								                        </ul>
 								                    </div>
-								                </li>
+								                </li> -->
 
 
 
@@ -1006,7 +1006,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 								                @endif
 
-								                @if(Auth::user()->user_type_id==1 || Auth::user()->user_type_id == 2)
+								                @if(Auth::check() && (Auth::user()->user_type_id==1 || Auth::user()->user_type_id == 2))
 								                
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.products_income')</h4>
@@ -1043,6 +1043,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								                </li>
 								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-graphic"></i><span class="kt-menu__link-text">@lang('base.purchases')</span></a></li>
 								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-network"></i><span class="kt-menu__link-text">@lang('base.sales')</span></a></li>
+
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('reportes/productos/masvendidos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box-1"></i><span class="kt-menu__link-text">Productos mas vendidos</span></a></li>
+								                
 								                
 								            </ul>
 								        </div>

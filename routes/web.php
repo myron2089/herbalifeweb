@@ -48,6 +48,7 @@ Route::resource('administracion/usuarios', 'UserController');
 /*-------------------- products -----------------*/
 Route::resource('administracion/productos', 'ProductController');
 Route::get('administrar/productos/desactivar/{id}/{statusId}', 'ProductController@changeProductStatus');
+Route::get('reportes/productos/masvendidos', 'ProductController@productBestSeller');
 
 	/*-- product by id for purchase and sale list */
 	Route::get('administrar/productos/getproductbyid/{id}', 'ProductController@getProductByIdForList');
@@ -94,3 +95,6 @@ Route::get('distribuidor/inicio', 'DistributorController@getDistributorSideHomeP
 	/*--------------------------- purchases -------------------------------------*/
 	Route::get('distribuidor/compras', 'SaleController@distributorPurchasesIndex');
 	Route::get('distribuidor/compras/{id}', 'SaleController@distributorPurchaseDetail');
+
+	/*--------------------------- asociates --------------------------------------*/
+	Route::get('distribuidor/asociados', 'DistributorController@getAssociatedDistributors');

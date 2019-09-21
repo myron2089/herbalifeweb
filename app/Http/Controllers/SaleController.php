@@ -148,6 +148,8 @@ class SaleController extends Controller
             $saleTotal = 0;
             $exception = 0;
 
+           
+
             foreach ($orderDetails as $detail) {
                 
 

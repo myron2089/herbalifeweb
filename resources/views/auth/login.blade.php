@@ -75,9 +75,9 @@
 		                                @enderror
 									<div class="col_full nobottommargin">
 										<button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">@lang('base.signin')</button>
-										@if (Route::has('password.request'))
+										<!--@if (Route::has('password.request'))
 											<a href="{{ route('password.request') }}" class="fright">@lang('base.forgot_password')</a>
-										@endif
+										@endif-->
 									</div>
 
 									

@@ -338,4 +338,51 @@ class ProductController extends Controller
             return json_encode(['status'=> 'error', 'message' => 'Ha ocurrido un error, porfavor, póngase en contacto con el administrador del sistema.']);
         }
     }
+
+
+    /*
+    * Reporte de productos mas vendidos
+    */
+    public function productBestSeller(Request $request){
+
+        try{
+
+            $quantity = 5;
+            if($request->cant){
+                $quantity = $request->cant;
+            }
+
+            $products = Product::from('products as p')
+                         ->join('unities as u', 'u.id', 'p.unity_id')
+                         ->join('statuses as st', 'st.id', 'p.status_id')
+                         ->join('categories as c', 'c.id', 'p.category_id')
+                         ->join('sale_detail as sd', 'sd.product_id', 'p.id')
+                         ->select(DB::RAW('p.id, p.productHerbaLifeCode, p.productName, p.productDescription, u.unityName, c.categoryName, p.productMeasure, st.statusName, p.status_id, sum(sd.productQuantity) as totalcantidad, SUM(sd.productQuantity * sd.productPrice) as totalventas '))
+                         ->groupBy('p.id','p.productHerbaLifeCode', 'p.productName', 'p.productDescription', 'u.unityName', 'c.categoryName', 'p.productMeasure', 'st.statusName', 'p.status_id')
+                         
+                         ->take($quantity)
+                         ;
+
+                     $products1 = Product::from('products as p')
+                     ->join('unities as u', 'u.id', 'p.unity_id')
+                     ->join('statuses as st', 'st.id', 'p.status_id')
+                     ->join('categories as c', 'c.id', 'p.category_id')
+                     ->join('sale_detail as sd', 'sd.product_id', 'p.id')
+                     ->select(DB::RAW('p.id, p.productHerbaLifeCode, p.productName, p.productDescription, u.unityName, c.categoryName, p.productMeasure, st.statusName, p.status_id, sum(sd.productQuantity) as totalcantidad, SUM(sd.productQuantity * sd.productPrice) as totalventas '))
+                     ->groupBy('p.id','p.productHerbaLifeCode', 'p.productName', 'p.productDescription', 'u.unityName', 'c.categoryName', 'p.productMeasure', 'st.statusName', 'p.status_id')
+                     
+                     ->take($quantity)
+                         ;
+
+           // dd($products);
+            return view('management.reports.products.best_seller', ['bestcant' => $products->orderBy('totalcantidad', 'desc')->get(), 'mostmoney' => $products1->orderBy('totalventas', 'desc')->get() ]);
+            
+
+           
+        }catch(Exception $e){
+            return json_encode(['status'=> 'error', 'message' => 'Ha ocurrido un error, porfavor, póngase en contacto con el administrador del sistema.']);
+        }
+    
+
+    }
 }

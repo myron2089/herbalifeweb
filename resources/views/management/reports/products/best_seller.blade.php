@@ -15,8 +15,8 @@
 						<i class="kt-font-brand flaticon-suitcase"></i>
 					</span>
 					<h3 class="kt-portlet__head-title">
-						@lang('base.orders_management')
-						<small>@lang('base.orders_management_description')</small>
+						Productos más vendidos
+						<small>Informe de productos mas vendidos</small>
 					</h3>
 				</div>
 				<div class="kt-portlet__head-toolbar">
@@ -33,12 +33,19 @@
 						<div class="col-xl-8 order-2 order-xl-1">
 							<div class="row align-items-center">
 								<div class="col-md-8 kt-margin-b-20-tablet-and-mobile">
-									<div class="kt-input-icon kt-input-icon--left">
-										<input type="text" class="form-control" placeholder="@lang('base.search')..." id="generalSearch">
-										<span class="kt-input-icon__icon kt-input-icon__icon--left">
-											<span><i class="la la-search"></i></span>
-										</span>
-									</div>
+									<form method="GET" action="{{url('reportes/productos/masvendidos')}}">
+										<label>Seleccione la cantidad de productos que desea ver</label>
+										<select class="form-control" name="cant"  id="cant">
+											<option value="2">2</option>
+											<option value="5">5</option>
+											<option value="10">10</option>
+											<option value="15">15</option>
+										</select>
+
+										<button type="submit" class="btn btn-default mt-2">Realizar consulta</button>
+									</form>
+										
+									
 								</div>
 						</div>
 						<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
@@ -53,57 +60,14 @@
 				<!--end: Search Form -->
 			</div>
 			<div class="kt-portlet__body kt-portlet__body--fit">
-				 @if (\Session::has('status'))
-					<div class="alert alert-success" role="alert">
-						{{ \Session::get('message') }}  
+				<div class="row">
+				 	<div class="col-md-12">
+						<div id="piechart_3d" style="width: 900px; height: 500px; float: left"></div>
 					</div>
-						@if(Session::get('exception') == 1)
-						<div class="alert alert-warning" role="alert">
-							{{ \Session::get('exmessage') }}
-								
-						</div>		
-						@endif		 	
-				 </div>
-				 @endif
-				<!--begin: Datatable -->
-				<table class="kt-datatable" id="html_table" width="100%">
-					<thead>
-						<tr>
-							<th title="Field #1">@lang('base.purchase_date')</th>
-							<th title="Field #2">@lang('base.document_number')</th>
-							<th title="Field #3">Distribuidor</th>
-							<th title="Field #4">Total</th>
-							<th title="Field #4">Estado</th>
-							<th title="Field #5">@lang('base.details')</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($orders as $order)
-						<tr>
-							<td>{{$order->fechaDoc}}</td>
-							<td>{{$order->noDoc}}</td>
-							<td>{{$order->userFirstName}} {{$order->userLastName}}<br> <code>{{$order->userHerbaLifeCode}}</code></td>
-							<td class="kt-align-right">{{$order->orderTotal}}</td>
-							<td class="kt-align-right">{{$order->statusName}}</td>
-							
-							<td>
-								<a href="{{url('administracion/pedidos')}}/{{$order->id}}"  class="btn btn-sm btn-outline-brand"><i class="fa flaticon-eye"></i> @lang('base.purchase_show_detail')</a>
-								
-								@if($order->status_id <> 6)					
-									<a href="#" onclick="event.preventDefault(); document.getElementById('frm-sell-{{$order->id}}').submit();"  class="btn btn-sm btn-outline-brand"><i class="fa fa-arrow-right"></i> @lang('base.sell')</a>
-								@endif
-
-								<form id="frm-sell-{{$order->id}}" action="{{url('administracion/ventas')}}" method="POST" style="display: none;">
-								    @csrf
-								    <input type="hiiden" name="orderId" id="orderId" value="{{$order->id}}">
-								</form>
-							</td>
-							
-						</tr>
-						@endforeach
-						
-					</tbody>
-				</table>
+					<div class="col-md-12">
+						<div id="donutchart" style="width: 900px; height: 500px; float: left;"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -155,4 +119,54 @@
 	}
 
 </script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart2);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Producto', 'Cantidad vendida'],
+          @foreach($bestcant as $product)
+          ['{{$product->productName}}',    {{$product->totalcantidad}}],
+          @endforeach
+        ]);
+
+       
+
+        var options = {
+          title: 'Productos mas vendidos',
+          is3D: true,
+        };
+
+        
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+
+        
+      }
+</script>
+
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+           ['Producto', 'Cantidad vendida'],
+          @foreach($mostmoney as $product)
+          ['{{$product->productName}}',    {{$product->totalventas}}],
+          @endforeach
+        ]);
+
+        var options = {
+          title: 'Productos con mayor venta',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
 @endsection

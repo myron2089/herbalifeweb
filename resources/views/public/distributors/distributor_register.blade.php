@@ -35,9 +35,20 @@
 							</div> -->
 							
 
-							
+							<div class="col-md-12">
+
+								@if(session()->has('status'))
+
+									@if(session('status') == 'error')
+										<div class="alert alert-warning">
+										  <i class="icon-warning-sign"></i><strong>Error! </strong><br>{!!session('message')!!}
+										</div>											
+									@endif
+
+								@endif
+							</div>
 								
-								<input name="referedId" id="referedId"  value="213213212" type="hidden" maxlength="100" class="form-control required" required >
+								
 							
 							<div class="col-12 mt-2 mb-3">
 								<div class="card p-3 bg-light">
@@ -48,15 +59,26 @@
 								</div>
 							</div>
 
+							<div class="col-sm-12 col-md-12 form-group">
+								<label>Código de tu distribuidor Herbalife<span>*</span></label>
+								<input name="referedId" id="referedId"    maxlength="100" placeholder="Ej: HBLF-000000000" class="form-control required" required autofocus value="{{ old('referedId') }}" >
+							</div>
+
+							<div class="clear mt-4"></div>
+							<div class="col-md-12">
+								<div class="fancy-title title-bottom-border">
+									<h4><span style="color: gray !important">Datos personales</span></h4>
+								</div>
+							</div>
 
 							<div class="col-sm-12 col-md-6 form-group">
 								<label>@lang('base.user_first_name')<span>*</span></label>
-								<input name="userFirstName" id="userFirstName" type="text" maxlength="50"  class="form-control required" required autofocus>
+								<input name="userFirstName" id="userFirstName" type="text" maxlength="50"  class="form-control required" required  value="{{ old('userFirstName') }}">
 							</div>
 
 							<div class="col-sm-12 col-md-6 form-group">
 								<label>@lang('base.user_last_name')<span>*</span></label>
-								<input type="text" name="userLastName" id="userLastName" maxlength="50" class="form-control required" value="" required>
+								<input type="text" name="userLastName" id="userLastName" maxlength="50" class="form-control required" required value="{{ old('userLastName') }}">
 							</div>
 
 							<!--<div class="col-6 form-group">
@@ -71,17 +93,17 @@
 							
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.distributor_phone_number')<span>*</span></label>
-								<input name="userPhoneNumber" id="userPhoneNumber" type="phone" maxlength="12" class="form-control" placeholder=""  required>
+								<input name="userPhoneNumber" id="userPhoneNumber" type="phone" maxlength="12" class="form-control" placeholder=""  required value="{{ old('userPhoneNumber') }}">
 							</div>
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.user_address')<span>*</span></label>
-								<input name="userAddress" id="userAddress" type="text" maxlength="50" class="form-control" placeholder="" required>
+								<input name="userAddress" id="userAddress" type="text" maxlength="50" class="form-control" placeholder="" required value="{{ old('userAddress') }}">
 										
 							</div>
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.state')<span>*</span></label>
 										
-								<select class="form-control kt-select2 select-state" id="state" name="state" required>
+								<select class="form-control kt-select2 select-state" id="state" name="state" required value="{{ old('state') }}">
 									<option value="">@lang('base.select_an_option')</option>
 									@foreach($states as $state)
 									<option value="{{$state->id}}">{{$state->stateName}}</option>
@@ -94,7 +116,7 @@
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.city')<span>*</span></label>
 										
-										<select class="form-control kt-select2 select-city" id="city" name="city" required>
+										<select class="form-control kt-select2 select-city" id="city" name="city" required value="{{ old('city') }}">
 											<option value="">@lang('base.select_an_option')</option>
 										</select>
 							</div>
@@ -108,12 +130,12 @@
 
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.distributor_email')<span>*</span></label>
-								<input name="userEmail" id="userEmail" type="email" maxlength="100" class="form-control" placeholder=""  required>
+								<input name="userEmail" id="userEmail" type="email" maxlength="100" class="form-control" placeholder=""  required value="{{ old('userEmail') }}">
 							</div>
 							<div class="clear"></div>
 							<div class="col-sm-12 col-md-6 form-group">
 								<label class="">@lang('base.distributor_password')<span>*</span></label>
-								<input name="userPassword" id="userPassword" type="password" minlength="8" maxlength="100" class="form-control" placeholder=""  required>
+								<input name="userPassword" id="userPassword" type="password" minlength="8" maxlength="100" class="form-control" placeholder=""  required >
 							</div>
 							<div class="clear"></div>
 							<div class=" col-sm-12 col-md-6 form-group">
@@ -136,6 +158,8 @@
 						</div>
 						<input type="hidden" name="prefix" value="checkout-form-">
 					</div>
+
+					
 				</form>
 			</div>
 		</div>

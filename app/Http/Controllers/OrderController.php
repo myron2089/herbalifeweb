@@ -107,7 +107,7 @@ class OrderController extends Controller
         try{
 
 
-            return $request->all();
+            
             $ordId = mt_rand();
             // Registrar en la tabla orders
 

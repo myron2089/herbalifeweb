@@ -57,7 +57,7 @@
 					<div class="alert alert-success" role="alert">
 						{{ \Session::get('message') }}  
 					</div>
-						@if(Session::get('exception') == 1)
+						@if(Session::get('exception') == 21)
 						<div class="alert alert-warning" role="alert">
 							{{ \Session::get('exmessage') }}
 								

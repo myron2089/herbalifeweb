@@ -33,7 +33,13 @@
 							<div class="kt-portlet__body">
 								<!--begin:: invoice -->
 								<div class="kt-invoice-1">
+									@php
+										$odrId =0;
+									@endphp
 								@foreach($order as $data)
+								@php
+								$odrId =$data->id;
+								@endphp
 								<div class="kt-invoice__head" style="background-image: url('{{url('admin/images/background/450.jpg')}}');">
 									<div class="kt-invoice__container">
 										<div class="kt-invoice__brand">
@@ -132,12 +138,20 @@
 									<div class="row">
 										<div class="col-lg-12  kt-align-right">
 											
-											<a href="{{url('administracion/ingresos')}}" class="btn btn-secondary">@lang('base.btn_return')</a>
+											<a href="{{url('administracion/pedidos')}}" class="btn btn-secondary">@lang('base.btn_return')</a>
+
+											<a href="#" onclick="event.preventDefault(); document.getElementById('frm-sell-1').submit();"  class="btn btn-sm btn-outline-brand"><i class="fa fa-arrow-right"></i> @lang('base.sell')</a>
+
+											
 										</div>
 										
 									</div>
 								</div>
 							</div>
+						</form>
+						<form id="frm-sell-1" action="{{url('administracion/ventas')}}" method="POST" style="display: none;">
+						    @csrf
+						    <input type="hidden" name="orderId" id="orderId" value="{{$odrId}}">
 						</form>
 						<!--end:: form-->
 					</div>

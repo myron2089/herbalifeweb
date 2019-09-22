@@ -29,6 +29,7 @@ class OrderController extends Controller
                          ->select(DB::raw('o.id, o.orderNumber as noDoc, sum((dt.detailQuantity) * (dt.detailPrice)) as orderTotal, st.statusName, u.userFirstName, u.userLastName, u.userHerbaLifeCode, DATE_FORMAT(o.created_at, "%d-%m-%Y") as fechaDoc, o.status_id'))
                          ->groupBy('o.id' , 'o.orderNumber', 'st.statusName', 'o.status_id', 'u.userLastName' , 'u.userFirstName', 'u.userHerbaLifeCode', 'o.created_at')
                          ->distinct()
+                         ->orderBy('o.status_id', 'asc')
                          ->get();
 
          return view('management.orders.orders_index', ['orders' => $orders]);

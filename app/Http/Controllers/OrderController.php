@@ -20,6 +20,7 @@ class OrderController extends Controller
     public function index()
     {
         //
+        if(Auth::check()){
         $orders = Order::from('orders as o')
                          ->join('order_detail as dt', 'dt.order_id', 'o.id')
                          ->join('statuses as st', 'st.id', 'o.status_id')
@@ -30,28 +31,39 @@ class OrderController extends Controller
                          ->distinct()
                          ->get();
 
-         return view('management.orders.orders_index', ['orders' => $orders]);            
+         return view('management.orders.orders_index', ['orders' => $orders]);
+         } else{
+
+              return redirect('login')->with(['status'=> 'error', 'message' => 'No tiene permisos para ver esta página, por favor inicie sesión.']);
+
+        }            
 
     }
 
     public function distributorOrdersIndex(){
-        $distributor = DB::table('distributors as d')
-                        ->join('users as u', 'u.id', 'd.user_id')
-                        ->where('u.id', Auth::user()->id)
-                        ->pluck('d.id');
+        if(Auth::check()){
+            $distributor = DB::table('distributors as d')
+                            ->join('users as u', 'u.id', 'd.user_id')
+                            ->where('u.id', Auth::user()->id)
+                            ->pluck('d.id');
 
-        $distributorId = $distributor[0];                
+            $distributorId = $distributor[0];                
 
-        $orders = Order::from('orders as o')
-                         ->where('distributors_id', $distributorId)
-                         ->join('order_detail as dt', 'dt.order_id', 'o.id')
-                         ->join('statuses as st', 'st.id', 'o.status_id')
-                         ->select(DB::raw('o.id, o.orderNumber as noDoc, sum((dt.detailQuantity) * (dt.detailPrice)) as orderTotal, st.statusName, DATE_FORMAT(o.created_at, "%d-%m-%Y") as fechaDoc'))
-                         ->groupBy('o.id' , 'o.orderNumber', 'st.statusName', 'o.status_id' ,'o.created_at')
-                         ->distinct()
-                         ->get();
-        //dd($orders);
-        return view('public.orders.orders_index', ['orders' => $orders]);
+            $orders = Order::from('orders as o')
+                             ->where('distributors_id', $distributorId)
+                             ->join('order_detail as dt', 'dt.order_id', 'o.id')
+                             ->join('statuses as st', 'st.id', 'o.status_id')
+                             ->select(DB::raw('o.id, o.orderNumber as noDoc, sum((dt.detailQuantity) * (dt.detailPrice)) as orderTotal, st.statusName, DATE_FORMAT(o.created_at, "%d-%m-%Y") as fechaDoc'))
+                             ->groupBy('o.id' , 'o.orderNumber', 'st.statusName', 'o.status_id' ,'o.created_at')
+                             ->distinct()
+                             ->get();
+            //dd($orders);
+            return view('public.orders.orders_index', ['orders' => $orders]);
+         } else{
+
+              return redirect('login')->with(['status'=> 'error', 'message' => 'No tiene permisos para ver esta página, por favor inicie sesión.']);
+
+        }   
     }
 
     /**
@@ -107,6 +119,7 @@ class OrderController extends Controller
         try{
 
 
+            //dd($request->all());
             
             $ordId = mt_rand();
             // Registrar en la tabla orders
@@ -134,7 +147,7 @@ class OrderController extends Controller
                     'order_id'=> $ordId, 
                     'product_id'=> $productId, 
                     'detailQuantity'=> $product['Quantity'], 
-                    'detailPrice' => $product['Price']
+                    'detailPrice' => $product['Cost']
                     
 
                 ]);

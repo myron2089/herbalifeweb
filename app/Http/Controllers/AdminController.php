@@ -51,9 +51,9 @@ class AdminController extends Controller
          $saleToday = $sale->getSaleData()->whereBetween('s.created_at', [date("Y-m-d"), date("Y-m-d")]);
          $salesTotalToday = $saleToday->sum('saleTotal');
           
-         $distributors = Distributor::where('status_id', 0)->sum('id');
+         $distributors = Distributor::where('status_id', 0)->get();
 
-         $orders = Order::where('status_id',1 )->sum('id');
+         $orders = Order::where('status_id',1 )->get();
 
 
          $myPurchases = Purchase::where('user_id', Auth::user()->id)->count();
@@ -67,6 +67,6 @@ class AdminController extends Controller
 
 
 
-    	return view('home', ['salesTotal' => $salesTotal, 'numSales' => $numSales, 'salesTotalToday' => $salesTotalToday, 'numSalesToday'=> count($saleToday->get()), 'distributors' => $distributors, 'orders' => $orders, 'mySales' => $mySales, 'myPurchases' => $myPurchases, 'thisMonthSales' => count($monthSalesCurr->get()), 'monthSalesLast' => count($monthSalesLast->get()),  'monthSales2' => count($monthSales2->get()) ]);
+    	return view('home', ['salesTotal' => $salesTotal, 'numSales' => $numSales, 'salesTotalToday' => $salesTotalToday, 'numSalesToday'=> count($saleToday->get()), 'distributors' => count($distributors), 'orders' => count($orders), 'mySales' => $mySales, 'myPurchases' => $myPurchases, 'thisMonthSales' => count($monthSalesCurr->get()), 'monthSalesLast' => count($monthSalesLast->get()),  'monthSales2' => count($monthSales2->get()) ]);
     }
 }

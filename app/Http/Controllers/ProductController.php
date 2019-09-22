@@ -10,6 +10,7 @@ use App\ProductPicture;
 use File;
 use Image;
 use App\Stock;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -23,24 +24,33 @@ class ProductController extends Controller
     public function index()
     {
          // Productos
-        
-        try{
+         if(Auth::check()){
+            try{
 
 
-            $products = Product::from('products as p')
-                         ->join('unities as u', 'u.id', 'p.unity_id')
-                         ->join('statuses as st', 'st.id', 'p.status_id')
-                         ->join('categories as c', 'c.id', 'p.category_id')
-                         ->select('p.id', 'p.productHerbaLifeCode', 'p.productName', 'p.productDescription', 'u.unityName', 'c.categoryName', 'p.productMeasure', 'st.statusName', 'p.status_id')
-                         ->get();
-            
-            return view('management.products.products_index', ['products'=>$products]);
+                $products = Product::from('products as p')
+                             ->join('unities as u', 'u.id', 'p.unity_id')
+                             ->join('statuses as st', 'st.id', 'p.status_id')
+                             ->join('categories as c', 'c.id', 'p.category_id')
+                             ->select('p.id', 'p.productHerbaLifeCode', 'p.productName', 'p.productDescription', 'u.unityName', 'c.categoryName', 'p.productMeasure', 'st.statusName', 'p.status_id')
+                             ->get();
+                
+
+                
+                return view('management.products.products_index', ['products'=>$products]);
 
 
-        } catch(Exception $e){
-            
-            return back()->with(['error'=> $e->getMessage()]);
+            } catch(Exception $e){
+                
+                return back()->with(['error'=> $e->getMessage()]);
+            }
+
+        } else{
+
+              return redirect('login')->with(['status'=> 'error', 'message' => 'No tiene permisos para ver esta página, por favor inicie sesión.']);
+
         }
+
         
     }
 
@@ -129,7 +139,7 @@ class ProductController extends Controller
 
 
             DB::commit();
-            return redirect('administracion/productos');
+            return redirect('administracion/productos')->with(['status'=> 'success', 'action' => 'create', 'message' => 'Producto registrado con éxito']);
         }
         catch(Exception $e){
             DB::rollBack();
@@ -250,7 +260,7 @@ class ProductController extends Controller
 
            
             DB::commit();
-            return redirect('administracion/productos');    
+            return redirect('administracion/productos')->with(['status'=> 'success', 'action' => 'create', 'message' => 'Producto actualizado con éxito']);;    
 
         } catch(Exception $e){
             DB::rollBack();

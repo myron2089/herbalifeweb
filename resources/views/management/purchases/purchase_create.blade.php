@@ -38,12 +38,12 @@
 
 									<div class="col-lg-6">
 										<label>@lang('base.purchase_document_number')<span>*</span></label>
-										<input name="purchaseDocumentNumber" id="purchaseDocumentNumber" type="text" value="11111" maxlength="20" class="form-control" autofocus required>									
+										<input name="purchaseDocumentNumber" id="purchaseDocumentNumber" type="text" value="" maxlength="20" class="form-control" autofocus required>									
 									</div>
 
 									<div class="col-lg-6">
 										<label>@lang('base.purchase_document_date')<span>*</span></label>
-										<input name="purchaseDocumentDate" id="purchaseDocumentDate" value="2019-08-10" type="date"  class="form-control" required>									
+										<input name="purchaseDocumentDate" id="purchaseDocumentDate" value="" type="date"  class="form-control" required>									
 									</div>
 									
 
@@ -123,7 +123,7 @@
 								<div class="kt-form__actions">
 									<div class="row">
 										<div class="col-lg-12  kt-align-right">
-											<button type="submit" class="btn btn-primary">@lang('base.btn_save_purchase')</button>
+											<button type="submit" class="btn btn-primary">Registrar ingreso</button>
 											<a href="{{url('administracion/ingresos')}}" class="btn btn-secondary">@lang('base.btn_cancel')</a>
 										</div>
 										

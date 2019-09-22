@@ -12,11 +12,11 @@
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
 					<span class="kt-portlet__head-icon">
-						<i class="kt-font-brand flaticon-suitcase"></i>
+						<i class="kt-font-brand flaticon2-line-chart"></i>
 					</span>
 					<h3 class="kt-portlet__head-title">
-						@lang('base.distributors_management')
-						<small>@lang('base.distributors_management_description')</small>
+						Existencias
+						<small>Stock de productos Herbalife</small>
 					</h3>
 				</div>
 				<div class="kt-portlet__head-toolbar">
@@ -65,10 +65,7 @@
 								</div>
 							</div>
 							&nbsp;
-							<a href="{{url('administracion/distribuidores/create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
-								<i class="la la-plus"></i>
-								@lang('base.new_distributor')
-							</a>
+							
 						</div>
 					</div>
 				</div>
@@ -136,44 +133,43 @@
 			</div>
 			<div class="kt-portlet__body kt-portlet__body--fit">
 
+				@if (\Session::has('status'))
+					<div class="alert alert-success" role="alert">
+						{{ \Session::get('message') }}  
+					</div>
+					@if(Session::get('exception') == 1)
+					<div class="alert alert-warning" role="alert">
+						{{ \Session::get('exmessage') }}
+							
+					</div>		
+					@endif		 	
+				 
+				 @endif
+
+
 				<!--begin: Datatable -->
 				<table class="kt-datatable" id="html_table" width="100%">
 					<thead>
 						<tr>
-							<th class="kt-hidden" title="Field #1">@lang('base.herbalife_code')</th>
 							
-							<th title="Field #2">@lang('base.distributor_name')</th>
-							<th title="Field #2">@lang('base.distributor_email')</th>
-							<th title="Field #4">@lang('base.distributor_phone_number')</th>
-							<!--<th title="Field #5">@lang('base.status')</th>-->
-							<th title="Field #5">@lang('base.actions')</th>
+							<th title="Field #2">@lang('base.product_name')</th>
+							
+							
+							<th title="Field #3">Precio</th>
+							<th title="Field #4">Existencia</th>
+							<th title="Field #2">@lang('base.product_category')</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($distributors as $distributor)
+						@foreach($products as $product)
 						<tr>
-							<td class="kt-hidden">{{$distributor->userHerbaLifeCode}}</td>
 							
-							<td>{{$distributor->userFirstName}} {{$distributor->userLastName}}</td>
-							<td>{{$distributor->email}}</td>
-							<td>{{$distributor->userPhoneNumber}}</td>
-							<!--<td><span id="{{$distributor->id}}">{{$distributor->statusName}}
-							</span> 
-							<button onclick="changeStatus({{$distributor->id}})" class="btn btn-sm btn-outline-brand"><i class="flaticon-refresh"></i>
-										
-											@lang('base.change_status') 
-										
-									</button>
-								
-							</td>-->
-							<td>
-								<a href="{{url('administracion/distribuidores')}}/{{$distributor->id}}/edit"  class="btn btn-sm btn-outline-brand"><i class="fa fa-edit"></i> @lang('base.btn_edit')</a>
-								
-									
-								
+							<td>{{$product->productName}} {{$product->productMeasure}} {{$product->unityName}}(s)<br> <code>{{$product->productHerbaLifeCode}}</code></td>
 							
-							</td>
 							
+							<td>Q {{$product->balancedPrice}}</td>
+							<td>{{$product->currentQuantity}}</td>
+							<td>{{$product->categoryName}}</td>
 						</tr>
 						@endforeach
 						
@@ -198,8 +194,8 @@
 <script>
 
 
-	function changeStatus(id){	
-		const url = "{{url('administrar/distribuidores/status')}}/"+id;
+	function changeStatus(id, statusId){	
+		const url = "{{url('administrar/productos/desactivar')}}/"+id+"/"+statusId;
 		
 
 		Swal.queue([{

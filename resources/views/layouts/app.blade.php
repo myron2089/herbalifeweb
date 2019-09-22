@@ -1019,6 +1019,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
 								                <li class="kt-menu__item " aria-haspopup="true"><a href="{{url('administracion/ingresos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list"></i><span class="kt-menu__link-text">@lang('base.show_incomes')</span></a></li>
 
+
+
+								                 <li class="kt-menu__section kt-menu__section--first">
+								                    <h4 class="kt-menu__section-text">@lang('base.orders')</h4>
+								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
+								                </li>
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/pedidos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-notes"></i><span class="kt-menu__link-text">@lang('base.show_orders')</span></a></li>
+
+
 								                <li class="kt-menu__section kt-menu__section--first">
 								                    <h4 class="kt-menu__section-text">@lang('base.sales')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
@@ -1029,11 +1038,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/ventas')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list"></i><span class="kt-menu__link-text">@lang('base.show_sales')</span></a></li>
 
 
-								                <li class="kt-menu__section kt-menu__section--first">
-								                    <h4 class="kt-menu__section-text">@lang('base.orders')</h4>
-								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
-								                </li>
-								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('administracion/pedidos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-notes"></i><span class="kt-menu__link-text">@lang('base.show_orders')</span></a></li>
+								               
 
 
 
@@ -1041,8 +1046,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								                    <h4 class="kt-menu__section-text">@lang('base.reports')</h4>
 								                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
 								                </li>
-								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-graphic"></i><span class="kt-menu__link-text">@lang('base.purchases')</span></a></li>
-								                <li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-network"></i><span class="kt-menu__link-text">@lang('base.sales')</span></a></li>
+								                <!--<li class="kt-menu__item " aria-haspopup="false"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-graphic"></i><span class="kt-menu__link-text">@lang('base.purchases')</span></a></li> -->
+								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('reportes/productos/existencias')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-network"></i><span class="kt-menu__link-text">Existencias</span></a></li>
 
 								                <li class="kt-menu__item " aria-haspopup="false"><a href="{{url('reportes/productos/masvendidos')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-box-1"></i><span class="kt-menu__link-text">Productos mas vendidos</span></a></li>
 								                

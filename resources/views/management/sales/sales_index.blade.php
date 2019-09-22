@@ -101,7 +101,7 @@
 							<th title="Field #2">@lang('base.document_number')</th>
 							<th title="Field #3">Distribuidor</th>
 							<th title="Field #4">Total</th>
-							<th title="Field #4">Estado</th>
+							<!--<th title="Field #4">Estado</th>-->
 							<th title="Field #5">@lang('base.details')</th>
 						</tr>
 					</thead>
@@ -117,7 +117,7 @@
 							<td>{{$sale->noDoc}}</td>
 							<td>{{$sale->userFirstName}} {{$sale->userLastName}}<br> <code>{{$sale->userHerbaLifeCode}}</code></td>
 							<td class="kt-align-right">{{$sale->saleTotal}}</td>
-							<td class="kt-align-right">{{$sale->statusName}}</td>
+							<!--<td class="kt-align-right">{{$sale->statusName}}</td>-->
 							
 							<td>
 								<a href="{{url('administracion/ventas')}}/{{$sale->noDoc}}"  class="btn btn-sm btn-outline-brand"><i class="fa flaticon-eye"></i> @lang('base.purchase_show_detail')</a>

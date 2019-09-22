@@ -210,7 +210,7 @@ class SaleController extends Controller
 
                 }else{
                     $stockExistsMinus = 1;
-                    $exception = 1;
+                    $exception = 0;
                 }
               
 
@@ -225,7 +225,7 @@ class SaleController extends Controller
             $saleUpdateTotal = Sale::where('id', $saleId)->update(['saleTotal' => $saleTotal]);
             
             DB::commit();
-            return redirect('administracion/pedidos')->with(['status'=> 'success', 'action' => 'create', 'message' => 'Persona registrada con éxito', 'exception' => 1, 'exmessage' => 'Algunos productos no se facturaron por falta de stock']);;
+            return redirect('administracion/pedidos')->with(['status'=> 'success', 'action' => 'create', 'message' => 'Pedido facturado con éxito', 'exception' => 1, 'exmsessage' => 'Algunos productos no se facturaron por falta de stock']);;
 
         }
         catch(Exception $e){

@@ -49,6 +49,7 @@ Route::resource('administracion/usuarios', 'UserController');
 Route::resource('administracion/productos', 'ProductController');
 Route::get('administrar/productos/desactivar/{id}/{statusId}', 'ProductController@changeProductStatus');
 Route::get('reportes/productos/masvendidos', 'ProductController@productBestSeller');
+Route::get('reportes/productos/existencias', 'StockController@getProductStock');
 
 	/*-- product by id for purchase and sale list */
 	Route::get('administrar/productos/getproductbyid/{id}', 'ProductController@getProductByIdForList');

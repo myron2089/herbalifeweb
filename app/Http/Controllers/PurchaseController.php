@@ -22,25 +22,33 @@ class PurchaseController extends Controller
     public function index()
     {
         //
-        try{
+        if(Auth::check()){
+            try{
 
 
-            $purchases = Purchase::from('purchases as p')
-                         ->join('users as u', 'u.id', 'p.user_id')
-                         ->join('statuses as st', 'st.id', 'p.status_id')
-                         ->join('suppliers as s' , 's.id' , 'p.supplier_id')
-                         ->join('purchase_detail as dt', 'dt.purchase_id', 'p.id')
-                         ->select(DB::raw('p.id, p.purchaseDocumentNumber as noDoc,  p.purchaseDocumentDate, u.userFirstName, u.userLastName, u.userIdentificationNumber, u.userHerbaLifeCode, u.email, u.userPhoneNumber, s.supplierName, st.statusName, p.status_id, sum((dt.productQuantity) * (dt.productCost)) as purchaseTotal '))
-                         ->groupBy('p.id' , 'p.purchaseDocumentNumber',  'p.purchaseDocumentDate', 'u.userFirstName', 'u.userLastName', 'u.userIdentificationNumber', 'u.userHerbaLifeCode', 'u.email', 'u.userPhoneNumber', 's.supplierName', 'st.statusName', 'p.status_id')
-                         ->distinct()
-                         ->get();
+                $purchases = Purchase::from('purchases as p')
+                             ->join('users as u', 'u.id', 'p.user_id')
+                             ->join('statuses as st', 'st.id', 'p.status_id')
+                             ->join('suppliers as s' , 's.id' , 'p.supplier_id')
+                             ->join('purchase_detail as dt', 'dt.purchase_id', 'p.id')
+                             ->orderBy('p.purchaseDocumentDate', 'desc')
+                             ->select(DB::raw('p.id, p.purchaseDocumentNumber as noDoc,  p.purchaseDocumentDate, u.userFirstName, u.userLastName, u.userIdentificationNumber, u.userHerbaLifeCode, u.email, u.userPhoneNumber, s.supplierName, st.statusName, p.status_id, sum((dt.productQuantity) * (dt.productCost)) as purchaseTotal '))
+                             ->groupBy('p.id' , 'p.purchaseDocumentNumber',  'p.purchaseDocumentDate', 'u.userFirstName', 'u.userLastName', 'u.userIdentificationNumber', 'u.userHerbaLifeCode', 'u.email', 'u.userPhoneNumber', 's.supplierName', 'st.statusName', 'p.status_id')
+                             ->distinct()
 
-            return view('management.purchases.purchases_index', ['purchases'=>$purchases]);
+                             ->get();
+
+                return view('management.purchases.purchases_index', ['purchases'=>$purchases]);
 
 
-        } catch(Exception $e){
-            
-            return back()->with(['error'=> $e->getMessage()]);
+            } catch(Exception $e){
+                
+                return back()->with(['error'=> $e->getMessage()]);
+            }
+        } else{
+
+              return redirect('login')->with(['status'=> 'error', 'message' => 'No tiene permisos para ver esta página, por favor inicie sesión.']);
+
         }
 
     }

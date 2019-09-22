@@ -23,9 +23,9 @@
 					<div class="kt-portlet__head-wrapper">
 						<div class="kt-portlet__head-actions">
 							<div class="dropdown dropdown-inline">
-								<button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<!--<button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<i class="la la-download"></i> @lang('base.export')
-								</button>
+								</button>-->
 								<div class="dropdown-menu dropdown-menu-right">
 									<ul class="kt-nav">
 										<li class="kt-nav__section kt-nav__section--first">
@@ -135,6 +135,20 @@
 				<!--end: Search Form -->
 			</div>
 			<div class="kt-portlet__body kt-portlet__body--fit">
+
+				@if (\Session::has('status'))
+					<div class="alert alert-success" role="alert">
+						{{ \Session::get('message') }}  
+					</div>
+					@if(Session::get('exception') == 1)
+					<div class="alert alert-warning" role="alert">
+						{{ \Session::get('exmessage') }}
+							
+					</div>		
+					@endif		 	
+				 
+				 @endif
+
 
 				<!--begin: Datatable -->
 				<table class="kt-datatable" id="html_table" width="100%">

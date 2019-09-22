@@ -83,9 +83,9 @@
 												@foreach($details as $detail)
 													<tr>
 														<td>{{$detail->productHerbaLifeCode}}</td>
-														<td>{{$detail->detailQuantity}}</td>
+														<td>{{$detail->productQuantity}}</td>
 														<td>{{$detail->productName}}</td>
-														<td>{{$detail->detailPrice}}</td>
+														<td>{{$detail->productPrice}}</td>
 														<td>{{$detail->subTotal}}</td>
 														
 													</tr>

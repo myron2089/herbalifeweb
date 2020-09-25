@@ -145,8 +145,9 @@
 							<th title="Field #2">@lang('base.distributor_name')</th>
 							<th title="Field #2">@lang('base.distributor_email')</th>
 							<th title="Field #4">@lang('base.distributor_phone_number')</th>
-							<!--<th title="Field #5">@lang('base.status')</th>-->
-							<th title="Field #5">@lang('base.actions')</th>
+							<th title="Field #5">@lang('base.distributor_refered')</th>
+							<th title="Field #6">@lang('base.status')</th>
+							<th title="Field #7">@lang('base.actions')</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -157,7 +158,8 @@
 							<td>{{$distributor->userFirstName}} {{$distributor->userLastName}}</td>
 							<td>{{$distributor->email}}</td>
 							<td>{{$distributor->userPhoneNumber}}</td>
-							<!--<td><span id="{{$distributor->id}}">{{$distributor->statusName}}
+							<td>{{$distributor->referredFirstName}} {{$distributor->referredLastName}}</td>
+							<td><span id="{{$distributor->id}}">{{$distributor->statusName}}
 							</span> 
 							<button onclick="changeStatus({{$distributor->id}})" class="btn btn-sm btn-outline-brand"><i class="flaticon-refresh"></i>
 										
@@ -165,7 +167,7 @@
 										
 									</button>
 								
-							</td>-->
+							</td>
 							<td>
 								<a href="{{url('administracion/distribuidores')}}/{{$distributor->id}}/edit"  class="btn btn-sm btn-outline-brand"><i class="fa fa-edit"></i> @lang('base.btn_edit')</a>
 								

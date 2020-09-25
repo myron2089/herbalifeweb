@@ -28,10 +28,14 @@ class DistributorController extends Controller
             $distributors = Distributor::from('distributors as d')
                          ->join('users as u', 'u.id', 'd.user_id')
                          ->join('statuses as st', 'st.id', 'd.status_id')
-                         ->where('user_type_id', 2)
-                         ->select('d.id', 'u.userFirstName', 'u.userLastName', 'u.userIdentificationNumber', 'u.userHerbaLifeCode', 'u.email', '.u.userPhoneNumber', 'st.statusName', 'd.status_id')
+                         ->leftJoin('distributors as d2', 'd.distributor_referred_id', 'd2.id')
+                         ->join('users as u2', 'u2.id', 'd2.user_id')
+                         ->where('u.user_type_id', 2)
+                         ->select('d.id', 'u.userFirstName', 'u.userLastName', 'u.userIdentificationNumber', 'u.userHerbaLifeCode', 'u.email', '.u.userPhoneNumber', 'st.statusName', 'd.status_id',
+                                  'u2.userFirstName as referredFirstName', 'u2.userLastName as referredLastName')
                          ->get();
             
+            //dd($distributors);
            
             return view('management.distributors.distributors_index', ['distributors'=>$distributors]);
 

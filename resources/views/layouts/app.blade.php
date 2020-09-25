@@ -1070,7 +1070,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="kt-container  kt-container--fluid ">
 							<div class="kt-footer__wrapper">
 								<div class="kt-footer__copyright">
-									&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Copyrights © 2019 All Rights Reserved by msoft Inc.</a>
+									&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Copyrights © 2020 All Rights Reserved by mksoft Inc.</a>
 								</div>
 								
 							</div>

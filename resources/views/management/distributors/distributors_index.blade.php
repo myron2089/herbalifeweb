@@ -161,11 +161,11 @@
 							<td>{{$distributor->referredFirstName}} {{$distributor->referredLastName}}</td>
 							<td><span id="{{$distributor->id}}">{{$distributor->statusName}}
 							</span> 
-							<button onclick="changeStatus({{$distributor->id}})" class="btn btn-sm btn-outline-brand"><i class="flaticon-refresh"></i>
+							<!--<button onclick="changeStatus({{$distributor->id}})" class="btn btn-sm btn-outline-brand"><i class="flaticon-refresh"></i>
 										
 											@lang('base.change_status') 
 										
-									</button>
+								</button>-->
 								
 							</td>
 							<td>

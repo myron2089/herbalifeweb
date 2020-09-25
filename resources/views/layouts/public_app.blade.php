@@ -279,14 +279,14 @@
 				<div class="container clearfix">
 
 					<div class="col_half">
-						Copyrights &copy; 2019 All Rights Reserved by msoft Inc.<br>
+						Copyrights &copy; 2020 All Rights Reserved by mksoft.<br>
 						
 					</div>
 
 					<div class="col_half col_last tright">
 						
 
-						<i class="icon-envelope2"></i> info@msoft.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +502 49004019</div>
+						<i class="icon-envelope2"></i> mksoft@gmail.com <span class="middot">&middot;</span> <!--<i class="icon-headphones"></i> +502 49004019--></div>
 
 				</div>
 

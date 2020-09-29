@@ -130,7 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!-- begin:: Brand -->
 							<div class="kt-header__brand " id="kt_header_brand">
 								<div class="kt-header__brand-logo">
-									<a href="demo11/index.html">
+									<a href="{{url('administracion/inicio')}}">
 										<img alt="Logo" src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" />
 									</a>
 								</div>

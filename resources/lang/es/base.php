@@ -33,7 +33,7 @@ return [
 	'user_id' => 'Identificación',
 	'email' => 'Correo Electrónico',
 	'user_type' => 'Tipo usuario',
-	'herbalife_code' => 'Código Herbalife',
+	'herbalife_code' => 'Código MulticerPlus',
 
 	'user_first_name' => 'Nombres',
 	'user_last_name' => 'Apellidos',
@@ -48,7 +48,7 @@ return [
 	/* Productos */
 	'products_management' => 'Administrar productos',
 	'new_product' => 'Crear producto',
-	'new_product_description' => 'Registrar productos herbalife',
+	'new_product_description' => 'Registrar productos MulticerPlus',
 	'edit_product' => 'Editar producto',
 
 	'product_name' => 'Nombre producto',
@@ -107,7 +107,7 @@ return [
 
 	/* Distribuidores */
 	'distributors_management' => 'Distribuidores',
-	'distributors_management_description' => 'Administrar distribuidores Herbalife',
+	'distributors_management_description' => 'Administrar distribuidores MulticerPlus',
 	'new_distributor' => 'Nuevo distribuidor',
 	'new_distributor_description' => 'Registar nuevo distribuidor',
 	'distributor_nit' => 'Número Identificación',
@@ -214,7 +214,7 @@ return [
 	'login_here' => 'Inicia sesión aquí',
 
 	'not_have_an_account'=>'No tienes una cuenta?',
-	'crete_an_account_and_receibe_benefits' => 'Crea tu cuenta y recibe muchos beneficios con herbalife',
+	'crete_an_account_and_receibe_benefits' => 'Crea tu cuenta y recibe muchos beneficios con MulticerPlus',
 	'craate_account_here' => 'Crea tu cuenta aquí',
 
 
@@ -227,7 +227,7 @@ return [
 	'meet_our_products_description' => 'Conoce todos nuestros productos y empieza a gozar de sus beneficios',
 
 	'want_best_future' => 'Quieres un mejor futuro?',
-	'be_a_distributor_and_get_benefits' => 'Coviértete en un distribuidor de herbalife y construye el futuro que mereces',
+	'be_a_distributor_and_get_benefits' => 'Coviértete en un distribuidor de MulticerPlus y construye el futuro que mereces',
 
 	'login_to_your_account' => 'Ingresa a tu cuenta',
 	'forgot_password' => 'Olvidaste tu contraseña',

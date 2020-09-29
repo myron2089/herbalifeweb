@@ -53,14 +53,14 @@
 							<div class="col-12 mt-2 mb-3">
 								<div class="card p-3 bg-light">
 									<div class="car-body">
-										<h3 class="mb-2">Crear una cuenta de Herbalife</h3>
-										<p class="mb-0">para acceder a tu cuenta en MyHerbalife, hacer pedidos y más...</p>
+										<h3 class="mb-2">Crear una cuenta de MulticerPlus</h3>
+										<p class="mb-0">para acceder a tu cuenta en MulticerPlus, hacer pedidos y más...</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-sm-12 col-md-12 form-group">
-								<label>Código de tu distribuidor Herbalife<span>*</span></label>
+								<label>Código de tu distribuidor MulticerPlus<span>*</span></label>
 								<input name="referedId" id="referedId"    maxlength="100" placeholder="Ej: HBLF-000000000" class="form-control required" required autofocus value="{{ old('referedId') }}" >
 							</div>
 

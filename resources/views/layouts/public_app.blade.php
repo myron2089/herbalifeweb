@@ -33,7 +33,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>Herbalife</title>
+	<title>MulticerPlus</title>
 
 	<style>
 
@@ -84,7 +84,7 @@
 
 				<div class="col_half nobottommargin">
 
-					<p class="nobottommargin"> <strong>info@herbalifeweb.com</strong></p>
+					<p class="nobottommargin"> <strong>info@multecerplus.com</strong></p>
 
 				</div>
 
@@ -152,8 +152,8 @@
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="index.html" class="standard-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
+						<a href="{{url('/inicio')}}" class="standard-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
+						<a href="{{url('/inicio')}}" class="retina-logo" data-dark-logo="{{url('admin/assets/media/logos/herbalife-logo.png')}}"><img src="{{url('admin/assets/media/logos/herbalife-logo.png')}}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 					
 					<!-- Primary Navigation

@@ -23,7 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Base Path -->
 		<meta charset="utf-8" />
 		<meta name="_token" content="{!! csrf_token() !!}"/>
-		<title>Herbalife | Admin</title>
+		<title>MulticerPlus | Admin</title>
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
